@@ -1,0 +1,1499 @@
+Advance-PvP for 0.17 because of:
+  LandmineGridlock
+Advanced_Fluid_Handling_DyWorld_Bridge for 1.1 because of:
+  DyWorld-Dynamics
+AgeOfFlintAndCoal for 1.1 because of:
+  InserterFuelLeechlk
+AhavaFixes for 0.17 because of:
+  Krastorio
+AllMods for 1.1 because of:
+  cargo-ships-seraph
+Amuxix_qol_collection for 1.1 because of:
+  GUI_Unifyer
+  PipeVisualizer
+  RecipeBook
+  simhelper
+AngelsBobsSelection for 0.18 because of:
+  angelsaddons-oresilos
+  angelsaddons-petrotrain
+  angelsaddons-pressuretanks
+  angelsaddons-smeltingtrain
+  angelsaddons-warehouses
+  OpteraLib
+  WagonColors
+ArmoredConstructionDrones for 0.18 because of:
+  Construction_Drones
+BABasedModpackAddons for 1.1 because of:
+  PipeVisualizer
+Ballasts_bolognese_modpack for 0.18 because of:
+  angelsaddons-oresilos
+  angelsaddons-warehouses
+  angelsaddons-pressuretanks
+  angelsaddons-petrotrain
+  angelsaddons-smeltingtrain
+  OpteraLib
+  deadlock-stacking-crating-bobs
+  Construction_Drones
+  EvoGUI
+Bare-PvP for 0.17 because of:
+  weaponSoundsRedone
+BeSeFe for 1.1 because of:
+  More-Exoskeletons
+  simhelper
+  ExpressBus
+  GUI_Unifyer
+BeltboxCoilCutter for 0.16 because of:
+  DeadlockStacking
+Big-machines-modpack for 1.1 because of:
+  TheArcFurnaceImp
+BigMonDs-Vanilla-Plus for 0.18 because of:
+  inserters-with-eyes
+  Personal-Roboport-Mk3
+  CW-thermal-solar-power
+BiomassPack for 1.1 because of:
+  logistic-artillery
+Blood-N-Wine-Factorio-Edition for 1.1 because of:
+  EnableResearchQueue
+  GUI_Unifyer
+  RealisticReactors
+  RecipeBook
+  simhelper
+BlueprintScanner for 0.15 because of:
+  data-raw-prototypes
+Booktorio-example for 1.1 because of:
+  Booktorio
+BroSEFEnE-Informational for 1.1 because of:
+  PipeVisualizer
+BroSEFEnE-Player-QoL for 1.1 because of:
+  UltimateResearchQueue
+  RecipeBook
+  QuickItemSearch
+BroSEFEnE-Required for 1.1 because of:
+  LtnManager
+BroSEFEnE-Visuals for 1.1 because of:
+  TintedGhosts
+CRC_Autism for 1.1 because of:
+  RealisticReactors
+Chaos-modpack for 1.1 because of:
+  Flammable_Oils_QUICKFIX
+  Wildfire
+Cheater-modpack for 1.1 because of:
+  DoublePlates
+  logistic-memory-units
+Chens-modpack_bob-py-qol for 1.1 because of:
+  Chens-modpack_qol
+Chens-modpack_qol for 1.1 because of:
+  FilterInsertersBegone
+  FuelTrainStop
+  GUI_Unifyer
+  RecipeBook
+  UltimateResearchQueue
+CollectionOfScenarios for 1.1 because of:
+  capitalism
+Cractorio_pack_optional for 1.1 because of:
+  GUI_Unifyer
+  romulinhosresearchqueuealwaystrue
+DD-QoL-ModPack for 1.1 because of:
+  copy-machine-orientation
+  LtnManager
+  PipeVisualizer
+  QuickItemSearch
+DK_IR2_AU for 1.1 because of:
+  IndustrialRevolution
+DaThomasSpacePack for 1.1 because of:
+  Air-Filtering_Fix
+  LtnManager
+  simhelper
+DabAndSuh for 1.1 because of:
+  GUI_Unifyer
+  RecipeBook
+DarksModpack for 0.18 because of:
+  angelsaddons-crawlertrain
+  angelsaddons-oresilos
+  angelsaddons-pressuretanks
+  moweather-se
+  OpteraLib
+  PyCoalTBaA-Temp-Dark
+DeadlockStackingForKrastorioLegacy for 0.18 because of:
+  Krastorio
+DeadlockStackingForPollutionSolutions for 0.18 because of:
+  PollutionSolutions
+DifferentFactories for 1.1 because of:
+  FriendBlueprints
+  additional-paste-settings
+  Automatic_Underground_Pipe_Connectors_Continued
+  Color_Combinator_Lamp_Posts
+  RecipeBook
+  Kux-BlueprintEditor
+  IndustrialDisplayPlates
+  Simple_Circuit_Trains
+  RealisticReactors
+DopePole for 0.17 because of:
+  IndustrialRevolution
+DyWorld_Renamer for 0.16 because of:
+  DyWorld
+DyWorld_RestoreOriginalBiterSounds for 1.1 because of:
+  DyWorld-Dynamics
+ET_s_Modpack for 1.1 because of:
+  Construction_Drones
+  EvoGUI
+  EvoGUI
+Engineering-toolkit for 1.1 because of:
+  PipeVisualizer
+  GUI_Unifyer
+EthryansModpack for 1.1 because of:
+  infinitycorpeslive
+  platforms
+  RealisticReactors
+  simhelper
+FAIR-sensors for 0.13 because of:
+  EvoGUI
+FIXED_angel-bob-clown-others-modpack for 1.1 because of:
+  actual-craft-times-remade
+  copy-machine-orientation
+  EvoGUI
+  factorissimo-power-pole-addon
+  GUI_Unifyer
+  IndustrialDisplayPlates
+  LtnManager
+  NPBees2
+  PipeVisualizer
+  platforms
+  simhelper
+  spidertron-logistics
+  steamTrains
+  tarantulator
+  windturbines-2-configurable-power
+Factory_Block for 1.1 because of:
+  QuickItemSearch
+  simhelper
+  SpawnControl
+Farlands for 1.1 because of:
+  Command_and_Conquer_RedAlert_Sounds-tz
+  dieselTrains
+  EvoGUI
+  fluidTrains
+  LtnManager
+  RealisticReactors
+  simhelper
+  TrainSpeedLimit_018_Port
+  walls-block-spitters
+  Wireless_Circuit_Network
+Farlands_Smurrlawa for 1.1 because of:
+  Command_and_Conquer_RedAlert_Sounds-tz
+  dieselTrains
+  EvoGUI
+  fluidTrains
+  LtnManager
+  RealisticReactors
+  simhelper
+  TrainSpeedLimit_018_Port
+  walls-block-spitters
+  Wireless_Circuit_Network
+Floki_mod_pack for 1.1 because of:
+  ammo-loader-Revise
+  GUI_Unifyer
+  LtnManager
+  subterra-v2
+FoodSpaceModmash for 0.17 because of:
+  aswil
+  Krastorio
+  Krastorio-graphics
+  space-exploration-hr-graphics
+FreightForwardingPack for 1.1 because of:
+  TrainGroups
+Future-Technology-Factorio-Modpack-IR3 for 1.1 because of:
+  EvoGUI
+  GUI_Unifyer
+  PipeVisualizer
+  QuickItemSearch
+  RecipeBook
+Future-Technology-Factorio-Modpack-sek2 for 1.1 because of:
+  EvoGUI
+  GUI_Unifyer
+  PipeVisualizer
+  QuickItemSearch
+  RecipeBook
+  simple_landfill_mining
+GDIW_Bergius for 0.14 because of:
+  Bergius_Process
+GUI_Modules for 0.17 because of:
+  OpteraLib
+Grado_ABCX for 1.1 because of:
+  MilesBobsExpansion
+  RealisticReactors
+Grado_ChangingBase for 1.1 because of:
+  LtnManager
+  UltimateResearchQueue
+Grado_NonChanging for 1.1 because of:
+  PipeVisualizer
+H-QoL-FF for 1.1 because of:
+  GUI_Unifyer
+  LtnManager
+  PipeVisualizer
+  QuickItemSearch
+  TrainGroups
+  UltimateResearchQueue
+  simhelper
+  simple_landfill_mining
+HX_extended_MP for 1.1 because of:
+  IndustrialRevolution
+  Hexi_Inline_Ore_Processing
+  LtnManager
+  logistic-memory-units
+INSANEMODE for 1.1 because of:
+  FilterInsertersBegone
+  RecipeBook
+  TintedGhosts
+  TrainGroups
+  TrainStatusIcons
+  parameterized-blueprints
+  remote-requests
+  simple_landfill_mining
+  shrek2
+  LtnManager
+  UltimateResearchQueue
+  Deep_Storage_Unit
+  PipeVisualizer
+IR-Chromium_Synthesis for 0.17 because of:
+  IndustrialRevolution
+IR-HighEndTweaks for 0.17 because of:
+  IndustrialRevolution
+IR-RepairTurret-Compatibility for 0.17 because of:
+  IndustrialRevolution
+IR-mining-research-recost for 0.17 because of:
+  IndustrialRevolution
+IR2AdvancedPumpjacks for 1.1 because of:
+  IndustrialRevolution
+IR2AtomicBomb for 1.1 because of:
+  IndustrialRevolution
+IR2SteamRadar for 1.1 because of:
+  IndustrialRevolution
+IR2_ChemRubber for 1.1 because of:
+  IndustrialRevolution
+IR2_LinearMiningProd for 1.1 because of:
+  IndustrialRevolution
+IR2_RubberTreeSelectiveBreeding for 1.1 because of:
+  IndustrialRevolution
+IRLT_ja for 0.17 because of:
+  IndustrialRevolution
+IRRangeConfig for 0.17 because of:
+  IndustrialRevolution
+Imperfection for 1.1 because of:
+  PoweredBeltsExtended
+  Wildfire
+Imperfection_Complete for 1.1 because of:
+  Wildfire
+Imperfection_Lite for 1.1 because of:
+  PoweredBeltsExtended
+  Wildfire
+Improved_gameplay for 1.1 because of:
+  EvoGUI
+Industrial-Revolution-Modpack for 1.1 because of:
+  EvoGUI
+  IndustrialRevolution
+IndustrialRevolution-Miniloader for 1.1 because of:
+  IndustrialRevolution
+IndustrialRevolution_AutomaticTrainFuelStop for 1.1 because of:
+  IndustrialRevolution
+  FuelTrainStop
+IndustrialRevolution_Dae_BP for 1.0 because of:
+  IndustrialRevolution
+IndustrialRevolution_SchallAutolinkedChest for 1.1 because of:
+  IndustrialRevolution
+IndustrialTextures for 1.1 because of:
+  IndustrialRevolution
+InlaidUVLamp for 1.1 because of:
+  Will-o-the-Wisps_updated
+Innomin8Pack for 0.14 because of:
+  bobconfig
+Innomin8PackConfig for 0.14 because of:
+  bobconfig
+Insane-PvP for 0.17 because of:
+  Advance-PvP
+InsaneModpack for 1.1 because of:
+  infinitycorpeslive
+  simhelper
+  spidertron-logistics
+IntoTheDeepEnd for 0.17 because of:
+  angelsaddons-petrotrain
+  angelsaddons-pressuretanks
+  OpteraLib
+Iron_Smelting for 0.17 because of:
+  Hexi_Inline_Ore_Processing
+JALOM for 1.1 because of:
+  Cractorio_pack_optional
+  EnableResearchQueue
+  fluidTrains
+  FuelTrainStop
+  GUI_Unifyer
+  HydroelectricPower
+  Induction Charging
+  lightArtillery-Balanced
+  LtnManager
+  Moar-Radar-ymhx
+  Panzerkampfwagen-VI-Tiger-Ausfuhrung-H
+  PipeVisualizer
+  QuickItemSearch
+  RealisticReactors
+  RecipeBook
+  se-disable-scan
+  simhelper
+  space-exploration-productivity
+  space-exploration-stuff
+  steamtrain
+  tarantulator
+  Train_balanced_K2_plus
+  walls-block-spitters
+JBOD_In_Space for 1.1 because of:
+  EvoGUI
+  fCPU-SEFix-FixMem
+  GUI_Unifyer
+  PipeVisualizer
+Jans_QOL_Pack for 1.1 because of:
+  EvoGUI
+  FuelTrainStop
+  GUI_Unifyer
+  RecipeBook
+JoesAngelsWarehousesFixes for 0.18 because of:
+  angelsaddons-warehouses
+Jonnys-Dp77-py-Fixes for 0.16 because of:
+  Dp77s-FactorioPlus-Advanced-Tech
+  Dp77s-FactorioPlus-Plates
+KS-Combat-sniper-fix for 0.17 because of:
+  KS_Combat
+Kaimdrol-QOL-choices for 1.1 because of:
+  EvoGUI
+  RecipeBook
+  simhelper
+Kr_ja for 0.18 because of:
+  Krastorio
+KrastorioLightedElectricPolesReachFix for 0.17 because of:
+  Krastorio
+KrastorioModPack for 1.1 because of:
+  RecipeBook
+  Not_Enough_Todo
+  Induction Charging
+Kux-PitchBlack for 1.1 because of:
+  Will-o-the-Wisps_updated
+  Hazard-Lights_Fix
+LTN_Tracker for 0.17 because of:
+  OpteraLib
+LTN_Tracker_beta for 0.17 because of:
+  OpteraLib
+  GUI_Modules
+LandfillConverter for 0.15 because of:
+  A Sea Block Config
+LaziestModPack for 1.1 because of:
+  RecipeBook
+  TrainGroups
+LazyNewbNotSE for 1.1 because of:
+  FuelTrainStop
+  June_PoweredConcrete
+  NoWoodenCircuits
+  RealisticReactors
+  simhelper
+  TrainGroups
+LazyNewbSE for 1.1 because of:
+  FuelTrainStop
+  June_PoweredConcrete
+  RealisticReactors
+  SE-SimpleMachines
+  simhelper
+  Space-Exploration-Rocket-Part-Delivery
+  TrainGroups
+LgksEvilModpack for 0.17 because of:
+  OpteraLib
+Literal-Rail-World for 0.17 because of:
+  angelsaddons-warehouses
+MD_Industrial_Revolution_2_modlist for 1.1 because of:
+  IndustrialRevolution
+Mania_krastorio for 1.1 because of:
+  FuelTrainStop
+  EvoGUI
+MatrixDJ96-Marsh-AngelBobs-Modpack for 1.1 because of:
+  EvoGUI
+  Natural_Evolution_Buildings2
+  Natural_Evolution_Enemies_Redux
+  RecipeBook
+  wireless-charging-lib_v18
+  wireless-charging_v18
+MatrixDJ96-Marsh-AngelBobs-Modpack-PATCH for 1.1 because of:
+  EvoGUI
+  Natural_Evolution_Enemies_Redux
+  RecipeBook
+  wireless-charging-lib_v18
+  wireless-charging_v18
+MatrixDJ96-QOL-Modpack for 1.1 because of:
+  GUI_Unifyer
+  QuickItemSearch
+Media-modpack for 1.1 because of:
+  LtnManager
+MeelocksEthryansModpack for 1.1 because of:
+  RealisticReactors
+  simhelper
+MinersPack for 1.1 because of:
+  FuelTrainStop
+  LtnManager
+  OutpostPlanner1-1
+Minewolf_modpack for 0.18 because of:
+  angelsaddons-oresilos
+  angelsaddons-warehouses
+  angelsaddons-pressuretanks
+  angelsaddons-petrotrain
+  angelsaddons-smeltingtrain
+  OpteraLib
+  PyCoalTBaA-Temp-Dark
+  deadlock-stacking-crating-bobs
+  Construction_Drones
+  EvoGUI
+MuroIR2KR2CompFix for 1.1 because of:
+  IndustrialRevolution
+N-industrypack for 1.1 because of:
+  RealisticReactors
+N-logisticspack for 1.1 because of:
+  LtnManager
+N-modpack for 1.1 because of:
+  N-industrypack
+  N-logisticspack
+N-utilitypack for 1.1 because of:
+  PipeVisualizer
+Nanobots-IR for 0.17 because of:
+  IndustrialRevolution
+NibblePoker-AngelBob-Personnal-ModPack for 1.1 because of:
+  boblogistics-belt-reskin
+  Command_and_Conquer_RedAlert_Sounds-tz
+  EnableResearchQueue
+  FuelTrainStop
+  LtnManager
+  simhelper
+NikolaTeslaX-Pack-Greg for 1.1 because of:
+  beltbox-barreling
+  copy-machine-orientation
+  copy-paste-recipe-signals-to-combinator
+  FilterInsertersBegone
+  LtnManager
+  PipeVisualizer
+  platforms
+  TrainSpeedLimit_018_Port
+NixieTubesThreeDigits for 1.1 because of:
+  simhelper
+NulliusBasedModpack for 1.1 because of:
+  GUI_Unifyer
+  PipeVisualizer
+  RecipeBook
+Odd-QoL for 1.1 because of:
+  GUI_Unifyer
+  PipeVisualizer
+  QuickItemSearch
+  RecipeBook
+OpusMagnoBasicQoLMods for 1.1 because of:
+  PipeVisualizer
+OverclockModules for 0.14.0 because of:
+  andrew-modules
+P3pp3rModpack_IR2 for 1.1 because of:
+  Better_Modbuttons
+  IndustrialRevolution
+  IndustrialRevolution-ExtendedCompatibility
+  IndustrialRevolution-Miniloader
+  IndustrialRevolutionStacking
+PABA-modpack-fix for 0.16 because of:
+  morebobs
+Patchwork_Overhaul for 1.1 because of:
+  Burner_Drill_4x4_Area
+  Hexi_Inline_Ore_Processing
+  MT-heaters
+Power-production-modpack for 1.1 because of:
+  HydroelectricPower
+PressurizedFluidsPollutionSolutionsBridge for 0.18 because of:
+  PollutionSolutions
+ProjectFactorio for 1.1 because of:
+  GUI_Unifyer
+  Krastorio2_Menu_Backgrounds_By_TehFocus
+  LtnManager
+  RealisticReactors
+  RecipeBook
+  simhelper
+PugnaciousPack for 0.18 because of:
+  ArtilleryFlares
+PvP-core for 0.17 because of:
+  fire_department
+  Flashlight On Off
+  quickbarimportexport
+  infinitycorpeslive
+PvP-maps for 1.1 because of:
+  BiterBattlesByComfy
+PvP-vanilla for 0.17 because of:
+  PvP-core
+  weaponSoundsRedone
+  LandmineGridlock
+QOLife_ for 1.1 because of:
+  GUI_Unifyer
+  LandfillEverything
+  SpawnControl
+Qol-Criceto-Modpack for 1.1 because of:
+  light-from-poles
+  UltimateResearchQueue
+  PipeVisualizer
+QualityOfLiving for 1.1 because of:
+  UltimateResearchQueue
+  TrainStatusIcons
+  PipeVisualizer
+RR-PE-PlayNice for 1.1 because of:
+  RealisticReactors
+RTS_PvP for 0.17 because of:
+  PvP-core
+  KS_Combat
+  LandmineGridlock
+RealisticReactors-PlutoniumEnergy-fuel-fix for 1.1 because of:
+  RealisticReactors
+ReasonableFasterStart for 1.1 because of:
+  Personal-Roboport-Mk3
+RefinedNetworkStorage-zh-CN for 1.1 because of:
+  RefinedNetworkStorage
+RnD-modpack for 1.1 because of:
+  AF-Infinite-Technology
+  UltimateResearchQueue
+Roboport-modpack for 1.1 because of:
+  Personal-Roboport-Mk3
+RoebuckAdvancedStart for 1.1 because of:
+  Personal-Roboport-Mk3
+  ev-personal-defence
+  more-fusion-reactors
+SchallBeltConfigurationKrastorio for 0.18 because of:
+  Krastorio
+SeaBlock-clusterio for 0.17 because of:
+  clusterio
+SeaBlockCustomPack-Variant for 1.1 because of:
+  A Sea Block Config
+  KS_Power_quickfix
+SeaBlockMetaPackFix for 0.18 because of:
+  A Sea Block Config
+Seaworld for 1.1 because of:
+  FilterInsertersBegone
+ShinyBob for 0.14 because of:
+  bobconfig
+SmoothestGameplay for 1.1 because of:
+  quickbarimportexport
+  billbo99_spawn_tweaks
+  FriendBlueprints
+  additional-paste-settings
+  Automatic_Underground_Pipe_Connectors_Continued
+  Color_Combinator_Lamp_Posts
+  RecipeBook
+  Kux-BlueprintEditor
+  IndustrialDisplayPlates
+  Simple_Circuit_Trains
+Soft-PvP for 0.17 because of:
+  PvP-core
+  LandmineGridlock
+Space-Exploration-N1rOo-modpack for 1.1 because of:
+  EvoGUI
+  LtnManager
+  PipeVisualizer
+  RecipeBook
+  space-exploration-stuff
+  UltimateResearchQueue
+  TintedGhosts
+Spacedestructor-Islands for 1.1 because of:
+  EvoGUI
+  FuelTrainStop
+  LtnManager
+  RecipeBook
+  simhelper
+Spacedestructor-Space-Exploration-Modpack for 1.1 because of:
+  FuelTrainStop
+  EvoGUI
+  RecipeBook
+SpeaceBlock for 0.18 because of:
+  angelsaddons-warehouses
+  A Sea Block Config
+SpectralOverhaul for 1.1 because of:
+  lob
+SquidCoder_Factorio_101 for 1.1 because of:
+  UltimateResearchQueue
+  PipeVisualizer
+  TintedGhosts
+  QuickItemSearch
+SteamTrains-Graphics for 1.1 because of:
+  steamTrains
+StephensModPack for 1.00 because of:
+  angelsaddons-oresilos
+  angelsaddons-warehouses
+StephensQOLModPack for 1.1 because of:
+  EvoGUI
+  OutpostPlanner1-1
+StsSEK2BZmodpack for 1.1 because of:
+  RealisticReactors
+  GUI_Unifyer
+  UltimateResearchQueue
+  PipeVisualizer
+  RecipeBook
+Teddys-QOL for 1.1 because of:
+  copy-machine-orientation
+  RecipeBook
+  remote-requests
+  TintedGhosts
+TileMiner for 0.17 because of:
+  bucketwheels-withvisual
+Tmas-QoL for 1.1 because of:
+  EvoGUI
+  Personal-Roboport-Mk3
+  GUI_Unifyer
+  romulinhosresearchqueuealwaystrue
+  UltimateResearchQueue
+TnoQOL for 1.1 because of:
+  UltimateResearchQueue
+  RecipeBook
+To_The_Future for 0.18 because of:
+  dark-matter-replicators-18-patch
+  EvoGUI
+  ProgressiveRunning
+  RaiLuaLib
+  RealisticReactors
+  RecipeBook
+  resourcehighlighter
+TornBreezes_must_have_mods for 1.1 because of:
+  EvoGUI
+  GUI_Unifyer
+  Not_Enough_Todo
+TrainSpeedMultiplierFixes for 1.1 because of:
+  Train-Speed-Multiplier
+TrainSupplyManager_DyWorld_Bridge for 1.1 because of:
+  DyWorld-Dynamics
+Train_Alerts for 0.17 because of:
+  OpteraLib
+TrashMan for 0.14 because of:
+  data-raw-prototypes
+UnChained_Tweaks for 0.14 because of:
+  angelscomponents
+  angelslogistics
+  angelsaddons-warehouses
+  angelsaddons-pressuretanks
+  bobconfig
+  bobelectronics_gfxtweak
+  BobExtended
+Universal-Science-D for 0.16 because of:
+  DyWorld
+Up_to_Space_Krastorio for 1.1 because of:
+  EvoGUI
+  GUI_Unifyer
+  infinitycorpeslive
+  PipeVisualizer
+  simhelper
+UtilityTweaksPack for 1.1 because of:
+  EvoGUI
+  PipeVisualizer
+Vanilla-plus-modpack for 1.1 because of:
+  AF-Infinite-Technology
+  Burner-Filter-Inserter
+WarehouseAddons for 0.17 because of:
+  angelsaddons-warehouses
+WaterWellRev for 0.17 because of:
+  IndustrialRevolution
+WePlayClusterioTestPack for 1.1 because of:
+  copy-paste-recipe-signals-to-combinator
+  ev-personal-defence
+  LtnManager
+  Moon_Logic
+  More-Exoskeletons
+  more-fusion-reactors
+  Personal-Roboport-Mk3
+  PipeVisualizer
+Whyyy-modpack for 1.1 because of:
+  1tank100fish
+  cholericcars
+  plastic-trees
+Will-o-the-Wisps_updated-2 for 1.0 because of:
+  Will-o-the-Wisps_updated
+YiPack for 1.1 because of:
+  CircuitProcessing_fixfor110
+  walls-block-spitters
+  boblogistics-belt-reskin
+  IndustrialDisplayPlates
+ZO-personal for 1.1 because of:
+  RecipeBook
+  Color_Combinator_Lamp_Posts
+  Empty_Miner_Tool
+  IndustrialDisplayPlates
+Zane-TurretPack for 1.0 because of:
+  rp-turrets
+Zolo-IR3-Modpack for 1.1 because of:
+  EvoGUI
+  GUI_Unifyer
+  PipeVisualizer
+  QuickItemSearch
+  RecipeBook
+aav-qol-modpack for 1.1 because of:
+  PipeVisualizer
+adams_mod for 1.1 because of:
+  Moon_Logic
+  Circuit_Power_Measurement_Combinator
+  Will-o-the-Wisps_updated
+  wireless-charging_v18
+  wireless-charging-lib_v18
+alexdelia-must-have for 1.1 because of:
+  PipeVisualizer
+andoryuu4-personal-modpack for 1.1 because of:
+  PipeVisualizer
+  TrainGroups
+  RecipeBook
+anentiresleeve-pack for 1.1 because of:
+  cholericcars
+archie-tiberium-ir2-compat for 1.1 because of:
+  IndustrialRevolution
+as2_krastorio for 1.1 because of:
+  FuelTrainStop
+  EvoGUI
+as2_krastorio_SE for 1.1 because of:
+  EvoGUI
+  simhelper
+as2_pyanodons for 1.1 because of:
+  FuelTrainStop
+asj-modpack-space for 1.1 because of:
+  space-exploration-hr-graphics
+atlas-angelOreus-modpack for 1.1 because of:
+  BigLightElectricMiningDrill
+azaghal-internal-testing for 1.1 because of:
+  QuickItemSearch
+base-conserved for 1.1 because of:
+  PipeVisualizer
+  actual-craft-times-remade
+  GUI_Unifyer
+  QuickItemSearch
+beyond-vanilla-extended for 1.1 because of:
+  platforms
+beyond-vanilla-qol for 1.1 because of:
+  EnableResearchQueue
+  lo-remote-constant
+  PipeVisualizer
+  QuickItemSearch
+  RecipeBook
+  TrainGroups
+beyond-vanilla-qol-plus for 1.1 because of:
+  beyond-vanilla-qol
+bobangel2021 for 1.1 because of:
+  EvoGUI
+bubblepack for 1.0 because of:
+  Construction_Drones
+buffer-warehouse for 0.16 because of:
+  angelsaddons-warehouses
+centaurea-cyanus-qol for 1.1 because of:
+  PipeVisualizer
+  LtnManager
+  GUI_Unifyer
+  UltimateResearchQueue
+ch-ei-pack for 1.1 because of:
+  Moon_Logic
+  PipeVisualizer
+  RecipeBook
+cssa-last-stand for 1.1 because of:
+  UltimateResearchQueue
+ctrlfrkbobconfig for 0.13 because of:
+  bobconfig
+ctrlfrkbobmodules for 0.13 because of:
+  ctrlfrkbobconfig
+cupcake-essentials for 1.1 because of:
+  GUI_Unifyer
+  PipeVisualizer
+  RecipeBook
+  TrainGroups
+  UltimateResearchQueue
+  Simple_Circuit_Trains
+desert-planet for 0.15 because of:
+  water-fix
+diessselTrains for 1.1 because of:
+  fluidTrains
+dj_mp_extreme for 1.1 because of:
+  EvoGUI
+  simhelper
+  spidertron-logistics
+droef-krastorio2-ir2-compat for 1.1 because of:
+  IndustrialRevolution
+early-spidertron-logistics for 1.1 because of:
+  spidertron-logistics
+elk-pack for 0.16 because of:
+  Rampant-Blockable-Projectiles
+  walls-block-spitters
+elks-pack for 0.16 because of:
+  Rampant-Blockable-Projectiles
+  walls-block-spitters
+evo_elev_temp for 0.13 because of:
+  EvoGUI
+exfret_space_modmash for 1.1 because of:
+  FuelTrainStop
+  GUI_Unifyer
+  HydroelectricPower
+  IndustrialDisplayPlates
+  LtnManager
+  Moon_Logic
+  Panzerkampfwagen-VI-Tiger-Ausfuhrung-H
+  PipeVisualizer
+  RealisticReactors
+  rp_organized_technology
+  simhelper
+  spidertron-logistics
+  tarantulator
+  TrainGroups
+  TrainSpeedLimit_018_Port
+  wireless-charging-lib_v18
+  wireless-charging_v18
+expensive-platforms for 1.0 because of:
+  platforms
+exploration_extreme_modpack for 1.1 because of:
+  EvoGUI
+  simhelper
+  spidertron-logistics
+factmeup for 1.1 because of:
+  actual-craft-times-remade
+  simhelper
+  tarantulator
+factorio-2ish-beefy for 1.1 because of:
+  FilterInsertersBegone
+  RecipeBook
+  TintedGhosts
+  TrainGroups
+  TrainStatusIcons
+  janky-quality
+  parameterized-blueprints
+  pigo-selector-combinator
+  remote-requests
+  simple_landfill_mining
+fenix-essentials for 1.1 because of:
+  PipeVisualizer
+flamborio2 for 1.0 because of:
+  simhelper
+  PipeVisualizer
+  LtnManager
+foltiks_spaghetti_modpack for 1.0 because of:
+  deadlock-stacking-crating-bobs
+foltiks_ultra_violence_modpack for 0.17 because of:
+  LTN_Tracker
+  AAI-CraftTab
+foxxy_modpack for 1.1 because of:
+  EnableResearchQueue
+  Flammable_Oils_QUICKFIX
+  GUI_Unifyer
+fvx_vanilla_qol for 1.1 because of:
+  GUI_Unifyer
+  PipeVisualizer
+gahaha-space-exploration for 1.1 because of:
+  RecipeBook
+geekbattery-exotic-stuff for 1.1 because of:
+  GUI_Unifyer
+  RecipeBook
+  simhelper
+geekbattery-ocean-pvp for 1.1 because of:
+  GUI_Unifyer
+geekbattery-space-odyssey for 1.1 because of:
+  TrainGroups
+  GUI_Unifyer
+gesugaosan-modpack-general for 1.1 because of:
+  Krastorio2_Menu_Backgrounds_By_TehFocus
+  RealisticReactors
+greysmod_bobs for 0.17 because of:
+  FuelTrainStop
+hard-reset for 1.1 because of:
+  EvoGUI
+  RealisticReactors
+  RecipeBook
+  romulinhosresearchqueuealwaystrue
+  simhelper
+heavily-modded-modpack for 1.1 because of:
+  hmm-combat
+  hmm-gameplay
+  hmm-improvements
+  hmm-transport
+hmm-c-weapons for 1.1 because of:
+  tarantulator
+hmm-combat for 1.1 because of:
+  hmm-c-weapons
+hmm-g-nuclear for 1.1 because of:
+  RealisticReactors
+hmm-gameplay for 1.1 because of:
+  hmm-g-nuclear
+hmm-i-gui for 1.1 because of:
+  GUI_Unifyer
+  RecipeBook
+  UltimateResearchQueue
+hmm-i-vanillaPlus for 1.1 because of:
+  copy-paste-recipe-signals-to-combinator
+hmm-improvements for 1.1 because of:
+  hmm-i-gui
+  hmm-i-vanillaPlus
+hmm-t-logistics for 1.1 because of:
+  PipeVisualizer
+hmm-t-trains for 1.1 because of:
+  LtnManager
+  TrainGroups
+hmm-transport for 1.1 because of:
+  hmm-t-logistics
+  hmm-t-trains
+hylke-qol for 1.1 because of:
+  Empty_Miner_Tool
+  PipeVisualizer
+  RecipeBook
+hypercursed for 1.1 because of:
+  Circuit_Power_Measurement_Combinator
+  infinitycorpeslive
+  Permanent-Factory
+ickputzdirwech-helper-pack for 0.18 because of:
+  CursorUpgradeCarousel
+  Edit-Blueprints
+  IndustrialDisplayPlates
+industrial-revolution-adjustments for 1.1 because of:
+  IndustrialRevolution
+industrial-revolution-tweaks-fungeon for 0.17 because of:
+  IndustrialRevolution
+inginfopack for 0.18 because of:
+  EvoGUI
+ingqolpack for 0.18 because of:
+  inginfopack
+inixyz_qol for 1.1 because of:
+  RecipeBook
+ir-synthetic-gems for 0.17 because of:
+  IndustrialRevolution
+ir2-arc-furnace-module for 1.1 because of:
+  IndustrialRevolution
+ir2fixes for 1.1 because of:
+  IndustrialRevolution
+j00lz-meme-mod for 1.1 because of:
+  RecipeBook
+janes_qol for 1.1 because of:
+  RecipeBook
+  TrainGroups
+jcrneep-space-modpack for 1.1 because of:
+  actual-craft-times-remade
+  Induction Charging
+  QuickItemSearch
+  space-exploration-hr-graphics
+jwwolff-mod-pack for 1.1 because of:
+  PipeVisualizer
+  GUI_Unifyer
+k2se-wq for 1.1 because of:
+  simhelper
+  space-exploration-hr-graphics
+kangzoels-qol-modpack for 1.1 because of:
+  RecipeBook
+karosieben_modpack for 1.1 because of:
+  EvoGUI
+  Not_Enough_Todo
+kayospack for 1.1 because of:
+  RecipeBook
+klohgers-chaos-pack for 1.1 because of:
+  actual-craft-times-remade
+  Induction Charging
+  QuickItemSearch
+  simhelper
+klynwo-modpack for 1.1 because of:
+  EvoGUI
+  GUI_Unifyer
+  PipeVisualizer
+  space-pipe-junctions
+korhal-modpack-bobangel for 1.1 because of:
+  platforms
+korhal-modpack-k2se for 1.1 because of:
+  platforms
+korhal-modpack-qol for 1.1 because of:
+  RecipeBook
+  PipeVisualizer
+  GUI_Unifyer
+  LtnManager
+kras_W2 for 1.1 because of:
+  GUI_Unifyer
+  RecipeBook
+kras_ghoulash for 1.1 because of:
+  NPBees2
+krastorio2-branko for 0.18 because of:
+  Construction_Drones
+  IndustrialDisplayPlates
+  InlaidLamps2
+kupil-mujik-shlyapu for 1.1 because of:
+  rp_warfare
+landairandseas-modpack for 1.1 because of:
+  EvoGUI
+lilacs-base-modpack for 1.1 because of:
+  EvoGUI
+  GUI_Unifyer
+  LtnManager
+  PipeVisualizer
+  QuickItemSearch
+  RecipeBook
+linedown_modpack for 0.17 because of:
+  AAI-CraftTab
+  angelsaddons-oresilos
+  angelsaddons-petrotrain
+  angelsaddons-pressuretanks
+  angelsaddons-smeltingtrain
+  angelsaddons-warehouses
+  deadlock-stacking-crating-bobs
+  EvoGUI
+  Factorio-LAN
+  LTN_Tracker
+  MoreRepairPacks
+  RealisticReactors
+  RealisticReactors-utilities
+logistic-memory-units-se for 1.1 because of:
+  deep-storage-unit-se
+lotus-mod for 1.1 because of:
+  simple_landfill_mining
+lotus-mod-extras for 1.1 because of:
+  TintedGhosts
+  TrainGroups
+lucky-modpack for 1.1 because of:
+  GUI_Unifyer
+  LtnManager
+  simhelper
+mabik_full_pack for 1.1 because of:
+  FuelTrainStop
+  GUI_Unifyer
+  RecipeBook
+  refined-wells
+  rp_organized_technology
+  simhelper
+mart_test for 1.1 because of:
+  Personal-Roboport-Mk3
+  More-Exoskeletons
+  GUI_Unifyer
+  actual-craft-times-remade
+  Induction Charging
+  QuickItemSearch
+martincitopants-new-stream-modpack for 1.1 because of:
+  actual-craft-times-remade
+  simhelper
+  tarantulator
+martincitopants-space-modpack for 1.1 because of:
+  actual-craft-times-remade
+  Induction Charging
+  QuickItemSearch
+  space-exploration-hr-graphics
+martincitopants-space-modpack-2022 for 1.1 because of:
+  actual-craft-times-remade
+  simhelper
+  tarantulator
+martincitopants-space-modpack-fixed-squared for 1.1 because of:
+  Personal-Roboport-Mk3
+  More-Exoskeletons
+  GUI_Unifyer
+  actual-craft-times-remade
+  QuickItemSearch
+martincitopants-space-modpack-no_hr for 1.1 because of:
+  actual-craft-times-remade
+  Induction Charging
+  QuickItemSearch
+martincitopants-space-modpack-seoh-fixed for 1.1 because of:
+  actual-craft-times-remade
+  Induction Charging
+  QuickItemSearch
+  space-exploration-hr-graphics
+martincitopants-stream-modpack for 1.1 because of:
+  Induction Charging
+  LtnManager
+  QuickItemSearch
+  actual-craft-times-remade
+  cargo-ships-seraph
+  more-fusion-reactors
+maximo-ups-e-fps for 1.1 because of:
+  Deep_Storage_Unit
+  SunModular
+  LandmineGridlock
+  modular-buildings
+mein-mod-pag for 1.1 because of:
+  fish-pole
+  Invulnerable_Rails_And_Bots
+  platforms
+  simhelper
+  UltimateResearchQueue
+  zancmok-basic
+mezzo-streaming-modpack for 1.1 because of:
+  InlaidUVLamp
+  LandmineGridlock
+  LtnManager
+  simhelper
+  Will-o-the-Wisps_updated
+mins-angelbob for 1.1 because of:
+  RecipeBook
+modpack-by-7 for 1.1 because of:
+  dieselTrains
+  GUI_Unifyer
+  spidertron-logistics
+  steamWorks
+modpack-industrial-revolution-2 for 1.1 because of:
+  fluidTrains
+  IndustrialRevolution
+  IndustrialRevolution-Miniloader
+  SpawnControl
+  steamTrains
+  tarantulator
+modpack-voyager for 1.1 because of:
+  LtnManager
+multiplayer_extreme_modpack for 1.1 because of:
+  EvoGUI
+  simhelper
+  spidertron-logistics
+n-j-mod-pack for 1.1 because of:
+  RecipeBook
+nach0_modpack for 1.1 because of:
+  nach0_modpack_compat
+nach0_modpack_248k_k2 for 1.1 because of:
+  nach0_modpack_k2
+nach0_modpack_Supporting_Mods for 1.1 because of:
+  GUI_Unifyer
+  OutpostPlanner1-1
+  QuickItemSearch
+  UltimateResearchQueue
+nach0_modpack_Supporting_mods_fixed for 1.1 because of:
+  GUI_Unifyer
+  QuickItemSearch
+  UltimateResearchQueue
+nach0_modpack_compat for 1.1 because of:
+  nach0_modpack_Supporting_Mods
+  spidertron-logistics
+  tarantulator
+  LtnManager
+  TrainGroups
+  RealisticReactors
+  copy-paste-recipe-signals-to-combinator
+nach0_modpack_k2 for 1.1 because of:
+  RecipeBook
+nach0_modpack_se_k2 for 1.1 because of:
+  nach0_modpack_k2
+nach0_modpack_se_k2_5dim for 1.1 because of:
+  nach0_modpack_se_k2
+nach0_modpack_se_k2_5dim_248k for 1.1 because of:
+  nach0_modpack_se_k2_5dim
+nanobotsfix-for-IR for 0.17 because of:
+  IndustrialRevolution
+necro_painful_modpack for 0.17 because of:
+  angelsaddons-pressuretanks
+  angelsaddons-warehouses
+  EvoGUI
+  MomoTweak
+nites-essentials for 1.1 because of:
+  copy-paste-recipe-signals-to-combinator
+nksadmasmdm for 1.1 because of:
+  actual-craft-times-remade
+  copy-machine-orientation
+  EvoGUI
+  factorissimo-power-pole-addon
+  GUI_Unifyer
+  IndustrialDisplayPlates
+  LtnManager
+  NPBees2
+  PipeVisualizer
+  platforms
+  simhelper
+  spidertron-logistics
+  steamTrains
+  tarantulator
+nms-qol for 1.1 because of:
+  EvoGUI
+  LtnManager
+  PipeVisualizer
+  RecipeBook
+  UltimateResearchQueue
+nullius-maximus-modpack for 1.1 because of:
+  nullius-momenti-modpack
+nullius-momenti-modpack for 1.1 because of:
+  FuelTrainStop
+  PipeVisualizer
+  RecipeBook
+orbadon_mod_collection for 1.1 because of:
+  EvoGUI
+  GUI_Unifyer
+  LandfillEverything
+pack-sparr-qol for 1.1 because of:
+  PipeVisualizer
+  QuickItemSearch
+pampServer2023 for 1.1 because of:
+  martincitopants-space-modpack-2022
+povertylogistics_industrialrevolution for 0.17 because of:
+  IndustrialRevolution
+prijindal_modpack_essentials for 1.1 because of:
+  RecipeBook
+prijindal_modpack_k2_se for 1.1 because of:
+  nach0_modpack_k2
+  prijindal_modpack_essentials
+prijindal_modpack_vanilla_plus for 1.1 because of:
+  prijindal_modpack_essentials
+puiSelectionSVE for 1.1 because of:
+  UltimateResearchQueue
+  RecipeBook
+puiTest for 1.1 because of:
+  ev-personal-defence
+  More-Exoskeletons
+  more-fusion-reactors
+  Personal-Roboport-Mk3
+  PipeVisualizer
+pyae_islands_pack for 1.1 because of:
+  LtnManager
+  PipeVisualizer
+  QuickItemSearch
+  simhelper
+qol_pack for 1.1 because of:
+  PipeVisualizer
+rafal-rubaj-modpack for 1.1 because of:
+  OutpostPlanner1-1
+  Personal-Roboport-Mk3
+  More-Exoskeletons
+  GUI_Unifyer
+raiguard-mods-modpack for 1.1 because of:
+  RecipeBook
+  QuickItemSearch
+  PipeVisualizer
+  UltimateResearchQueue
+railway-exploration for 0.17 because of:
+  EvoGUI
+  MoreRepairPacks
+  LTN_Tracker
+ratte-random for 1.1 because of:
+  1tank100fish
+  PipeVisualizer
+reactorio for 1.1 because of:
+  quickbarimportexport
+redhats-modpack for 1.1 because of:
+  GUI_Unifyer
+  LtnManager
+  PipeVisualizer
+  RecipeBook
+  simhelper
+reverse-factory-aio-compat for 1.1 because of:
+  aio-se-k2
+robert-modpack for 1.1 because of:
+  LtnManager
+  Moon_Logic
+rp_warfare for 1.1 because of:
+  rp_organized_technology
+ruvotis-modpack for 1.1 because of:
+  infinitycorpeslive
+rz-IR2CompatibilityFixes for 1.1 because of:
+  IndustrialRevolution
+salocraft for 1.1 because of:
+  GUI_Unifyer
+sborOchka-modpack for 1.1 because of:
+  QuickItemSearch
+  UltimateResearchQueue
+  RecipeBook
+  GUI_Unifyer
+  LtnManager
+  PipeVisualizer
+  simhelper
+sborochka-kot for 1.1 because of:
+  GUI_Unifyer
+  LtnManager
+  PipeVisualizer
+  QuickItemSearch
+  RecipeBook
+  simhelper
+  UltimateResearchQueue
+schmitts-modpack for 1.1 because of:
+  lob
+  Air-Filtering_Fix
+  LtnManager
+  UltimateResearchQueue
+scraporio for 1.1 because of:
+  Burner_Drill_4x4_Area
+se-alkharid-mod-pack for 1.1 because of:
+  PipeVisualizer
+  LtnManager
+se-lrf-trains for 1.1 because of:
+  dieselTrains
+seqres-qol-mashup for 1.1 because of:
+  LtnManager
+  GUI_Unifyer
+  PipeVisualizer
+  RecipeBook
+shrimpack-QOL for 1.1 because of:
+  RecipeBook
+silent-pack-2021-1 for 1.1 because of:
+  EvoGUI
+  LtnManager
+  platforms
+simplepack_angel for 0.18 because of:
+  angelsaddons-crawlertrain
+  angelsaddons-oresilos
+  angelsaddons-petrotrain
+  angelsaddons-pressuretanks
+  angelsaddons-smeltingtrain
+  angelsaddons-warehouses
+singleplayer_extreme_modpack for 1.1 because of:
+  EvoGUI
+  simhelper
+  spidertron-logistics
+smetdenis-mod-pack for 1.1 because of:
+  EvoGUI
+  LtnManager
+  RecipeBook
+  UltimateResearchQueue
+sole-survivor for 1.1 because of:
+  Burner_Drill_4x4_Area
+  TrainGroups
+  disable-expensive-mode
+soup22-modpack-basic for 1.1 because of:
+  rubberize
+  PipeVisualizer
+space-exploration-more-resources for 1.1 because of:
+  space-exploration-configuration
+space-modpack for 1.1 because of:
+  actual-craft-times-remade
+  Induction Charging
+  QuickItemSearch
+space-modpack-Snacklee-Fork for 1.1 because of:
+  actual-craft-times-remade
+  Induction_ChargingCC
+  QuickItemSearch
+space-modpack-mewthecrazy for 1.1 because of:
+  actual-craft-times-remade
+  QuickItemSearch
+space_krastorio_2_fine_experience for 1.0 because of:
+  EvoGUI
+  space-exploration-hr-graphics
+spidertron-logistics-updated for 1.1 because of:
+  spidertron-logistics
+stackrecipes for 0.16 because of:
+  DeadlockStacking
+steinio-s-Factorio-essentials for 1.1 because of:
+  EnableResearchQueue
+  GUI_Unifyer
+  InserterFuelLeechPatched
+  LtnManager
+  PipeVisualizer
+  RecipeBook
+  Rich_Text_Helper
+  TrainStatusIcons
+steinios_research_sensor for 1.1 because of:
+  EvoGUI
+sztosz_qol for 1.1 because of:
+  EvoGUI
+  GUI_Unifyer
+  PipeVisualizer
+  RecipeBook
+test_adams_mod for 1.1 because of:
+  Circuit_Power_Measurement_Combinator
+  Moon_Logic
+  Will-o-the-Wisps_updated
+thar0l-modpack-abc-base for 1.1 because of:
+  LtnManager
+  K2_Wireless-Charger
+thar0l-modpack-abc-full for 1.1 because of:
+  thar0l-modpack-abc-base
+thar0l-modpack-abc-qol for 1.1 because of:
+  RecipeBook
+  QuickItemSearch
+thenauvitian for 1.1 because of:
+  gas-me-up
+timspeedle-modpack-qol for 1.1 because of:
+  GUI_Unifyer
+  PipeVisualizer
+  RecipeBook
+  remote-requests
+  TintedGhosts
+  UltimateResearchQueue
+trainpainpack for 1.1 because of:
+  Train-Speed-Multiplier
+tsk_pack for 1.1 because of:
+  RecipeBook
+  UltimateResearchQueue
+ukezi_Construction_Drones_IR_Compatibility for 0.17 because of:
+  IndustrialRevolution
+ukezi_burner_radar for 0.17 because of:
+  IndustrialRevolution
+ukezi_capped_beams_change for 0.18 because of:
+  IndustrialRevolution
+ukezi_inserter_speed_change for 0.17 because of:
+  IndustrialRevolution
+undermark5-qol-mod-pack for 1.1 because of:
+  SpillProof
+unholy_legacy for 1.1 because of:
+  Natural_Evolution_Buildings2
+  NPBees2
+  spidertron-logistics
+utweaks for 1.0 because of:
+  PyCoalTBaA-Temp-Dark
+v0-18_nothing_v1-1 for 1.0 because of:
+  IndustrialDisplayPlates
+  Simple_Circuit_Trains
+vanilla-enhanced for 1.1 because of:
+  RecipeBook
+  shrek2
+verdeks-modpack for 1.1 because of:
+  FuelTrainStop
+  Natural-Evolution-Enemies-Research-Fix
+  Natural_Evolution_Buildings2
+  RecipeBook
+viktorious_modpack for 1.1 because of:
+  spidertron-logistics
+vq-modpack-qol for 1.1 because of:
+  RecipeBook
+vtk-deep-core-mining-ir for 0.17 because of:
+  IndustrialRevolution
+warptorio_pack for 1.1 because of:
+  qol_pack
+warringer_vanilla_plus_pack for 1.1 because of:
+  always-show-stack-size
+  EnableResearchQueue
+  GUI_Unifyer
+  OutpostPlanner1-1
+  PipeVisualizer
+  quickbarimportexport
+  SunResources
+  TrainGroups
+  UltimateResearchQueue
+web-fixes for 1.0 because of:
+  foltiks_spaghetti_modpack
+weplay_angelbobs for 1.1 because of:
+  PipeVisualizer
+  copy-paste-recipe-signals-to-combinator
+  LtnManager
+  simhelper
+weplay_se_kr_bz for 1.1 because of:
+  PipeVisualizer
+  requester-drop
+  copy-paste-recipe-signals-to-combinator
+  LtnManager
+  simhelper
+wocpack for 1.1 because of:
+  IndustrialDisplayPlates
+  LtnManager
+  QuickItemSearch
+wocpack2 for 1.1 because of:
+  LtnManager
+  QuickItemSearch
+  RecipeBook
+xboxxxxd_modpack for 1.1 because of:
+  tarantulator
+  PipeVisualizer
+yam_modpack_mithrahn for 1.1 because of:
+  FuelTrainStop
+  PipeVisualizer
+  RecipeBook
+  shrek2
+  UltimateResearchQueue
+yqur3-content for 1.1 because of:
+  factorissimo-power-pole-addon
+  LtnManager
+yqur3-utility for 1.1 because of:
+  PipeVisualizer
+  QuickItemSearch
+  RecipeBook
+  UltimateResearchQueue
+  TintedGhosts
+zo-IR-pack for 1.1 because of:
+  Color_Combinator_Lamp_Posts
+  Empty_Miner_Tool
+  RecipeBook
+  SpillProof
+  PipeVisualizer
+  TrainGroups
+zo-pack for 1.1 because of:
+  Automatic_Underground_Pipe_Connectors_Continued
+  billbo99_spawn_tweaks
+  Color_Combinator_Lamp_Posts
+  Empty_Miner_Tool
+  IndustrialDisplayPlates
+  Kux-BlueprintEditor
+  RecipeBook
+zo_server_PvP for 1.1 because of:
+  LandmineGridlock
+zombie_land for 0.16 because of:
+  walls-block-spitters
