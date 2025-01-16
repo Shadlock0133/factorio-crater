@@ -426,6 +426,7 @@ Early_Logistic_Network
 Easier-Logistic
 EasyCraft
 EasyMod
+Easy_API
 Easy_Start_Drones
 Edit-Blueprints
 Efficient_Raw_materials
@@ -1076,6 +1077,7 @@ Power_Armor_MK4_18
 PoweredBeltsExtended
 Powerfloor
 Powerfull-air-cleaner
+Primium
 PrioritizeEnemies
 ProductionScrap2_PipeFix
 ProgressiveRunning
@@ -1585,6 +1587,7 @@ Xagros_TUONELA_Core
 Xagros_TUONELA_Optimization
 XenosFreightForwardingLandfillFix
 YARMBE
+Yodo_test
 YouGotMail
 Your_custom_game
 Yuoki_F2
@@ -1743,6 +1746,7 @@ b-test
 b2p2
 backnulls-start
 battery-recolor-updated
+battery_solar
 bbpp
 be_a_biter
 beacon-overhaul
@@ -1796,6 +1800,7 @@ bobwarfare_patch
 bonus-combinator
 bot-deployer
 bot-gunner
+botsbotsbotsfork
 bottled_science
 breakable-landfill
 breedOre_reactor
@@ -2166,6 +2171,7 @@ laser-obelisks
 laser-test
 laser_fix
 laser_rifle_revived
+lasersniper
 lashpack
 leds
 leighzerdayninite
@@ -2186,6 +2192,7 @@ lightArtillery-Balanced
 likosHellPlanet
 linked-logistic
 linked-rail
+liqtosol
 liquid_oxygen_hydrogen
 lo-remote-constant
 loader-and-loader1x1-powered-sushi-belts-scripted

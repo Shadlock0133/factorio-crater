@@ -1,17 +1,15 @@
+mod deserialization;
+
 use std::{
     collections::{BTreeMap, BTreeSet},
-    env, fmt,
+    env,
     fs::{self, File},
     io::{self, Write},
-    str::FromStr,
 };
 
+use deserialization::{Dep, DepPrefix, ModFull, ModList};
 use futures::StreamExt;
 use reqwest::header::{self, HeaderMap, HeaderValue};
-use serde::{
-    de::{self, Visitor},
-    Deserialize, Deserializer,
-};
 
 const USER_AGENT: &str = "factorio-crater/0.1.0 (by Shadow0133 aka Aurora)";
 const INTERNAL_MODS: &[&str] =
@@ -56,123 +54,6 @@ fn download_mods<'a>(mod_list: impl Iterator<Item = &'a str>) {
     rt.block_on(futures::stream::iter(futures).for_each_concurrent(64, |x| x));
 }
 
-#[derive(Deserialize)]
-struct ModList {
-    results: Vec<Mod>,
-}
-
-#[derive(Debug, Deserialize)]
-struct Mod {
-    name: String,
-    latest_release: Option<LatestRelease>,
-}
-
-#[derive(Debug, Deserialize)]
-struct LatestRelease {
-    version: String,
-}
-
-#[derive(Debug, Deserialize)]
-struct ModFull {
-    name: String,
-    #[serde(default)]
-    deprecated: bool,
-    releases: Vec<Release>,
-}
-
-#[derive(Debug, Deserialize)]
-struct Release {
-    version: String,
-    info_json: InfoJson,
-}
-
-#[derive(Debug, Deserialize)]
-struct InfoJson {
-    #[serde(deserialize_with = "dep_or_vec_dep")]
-    dependencies: Vec<Dep>, // vec of strings, or single string
-    factorio_version: String,
-}
-
-fn dep_or_vec_dep<'de, D: Deserializer<'de>>(
-    des: D,
-) -> Result<Vec<Dep>, D::Error> {
-    struct DepOrVecDep;
-    impl<'de> Visitor<'de> for DepOrVecDep {
-        type Value = Vec<Dep>;
-        fn expecting(&self, f: &mut fmt::Formatter) -> fmt::Result {
-            write!(f, "string or list of strings")
-        }
-        fn visit_str<E: de::Error>(self, v: &str) -> Result<Self::Value, E> {
-            Ok(vec![v.parse().unwrap()])
-        }
-        fn visit_seq<A>(self, seq: A) -> Result<Self::Value, A::Error>
-        where
-            A: de::SeqAccess<'de>,
-        {
-            Ok(<Vec<String>>::deserialize(
-                de::value::SeqAccessDeserializer::new(seq),
-            )?
-            .into_iter()
-            .map(|x| x.parse().unwrap())
-            .collect())
-        }
-    }
-    des.deserialize_any(DepOrVecDep)
-}
-
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
-struct Dep {
-    prefix: DepPrefix,
-    name: String,
-    version: String,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-enum DepPrefix {
-    Incompatible,
-    Optional,
-    HiddenOptional,
-    LoadOrderIndependent,
-    Required,
-}
-
-impl FromStr for Dep {
-    type Err = ();
-    fn from_str(mut s: &str) -> Result<Self, Self::Err> {
-        s = s.trim();
-        let prefix = if let Some(rest) = s.strip_prefix("(?)") {
-            s = rest.trim();
-            DepPrefix::HiddenOptional
-        } else if let Some(rest) = s.strip_prefix("!") {
-            s = rest.trim();
-            DepPrefix::Incompatible
-        } else if let Some(rest) = s.strip_prefix("?") {
-            s = rest.trim();
-            DepPrefix::Optional
-        } else if let Some(rest) = s.strip_prefix("~") {
-            s = rest.trim();
-            DepPrefix::LoadOrderIndependent
-        } else {
-            DepPrefix::Required
-        };
-        let idx = s.find(['<', '=', '>']).unwrap_or(s.len());
-        let (name, version) = s.split_at(idx);
-        Ok(Self {
-            prefix,
-            name: name.trim().to_string(),
-            version: version.trim().to_string(),
-        })
-    }
-}
-
-#[derive(Clone)]
-struct DepMod {
-    deprecated: bool,
-    mod_version: String,
-    factorio_version: String,
-    dependencies: Vec<Dep>,
-}
-
 fn main() {
     let update_files = env::args().skip(1).any(|x| x == "-U");
     if update_files {
@@ -192,6 +73,18 @@ fn main() {
         download_mods(mod_version_list.keys().map(|x| x.as_str()));
         return;
     }
+    find_broken_mods(mod_version_list);
+}
+
+#[derive(Clone)]
+struct DepMod {
+    deprecated: bool,
+    mod_version: String,
+    factorio_version: String,
+    dependencies: Vec<Dep>,
+}
+
+fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
     eprintln!("all mods: {}", mod_version_list.len());
 
     let mut mod_map = BTreeMap::new();
@@ -259,7 +152,9 @@ fn main() {
             } else if iter.clone().any(|x| {
                 deprecated.contains(&x.name) | broken.contains_key(&x.name)
             }) {
-                if &*m.factorio_version >= "2.0" { continue; }
+                if &*m.factorio_version >= "2.0" {
+                    continue;
+                }
                 let broken_deps = iter
                     .filter(|x| {
                         deprecated.contains(&x.name)
@@ -287,7 +182,7 @@ fn main() {
             if deprecated.contains(&dep.name) {
                 eprint!("deprecated");
             }
-            if !mod_map.contains_key(&dep.name) && dep.name != "base" {
+            if typod.contains_key(&dep.name) {
                 eprint!("typod");
             }
             eprintln!()
@@ -296,8 +191,7 @@ fn main() {
     eprintln!("broken: {}", broken.len());
     let mut broken_file = File::create("broken.txt").unwrap();
     for (name, (m, _)) in &broken {
-        writeln!(broken_file, "{name} for {}", m.factorio_version)
-            .unwrap();
+        writeln!(broken_file, "{name} for {}", m.factorio_version).unwrap();
     }
 
     let mut broken_file = File::create("broken_with_reason.txt").unwrap();
