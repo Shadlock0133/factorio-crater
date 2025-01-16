@@ -1,4 +1,4 @@
-use std::{fmt, str::FromStr};
+use core::{fmt, str::FromStr};
 
 use serde::{
     de::{self, Visitor},

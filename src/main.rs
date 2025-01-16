@@ -1,5 +1,6 @@
 mod deserialization;
 
+use core::mem;
 use std::{
     collections::{BTreeMap, BTreeSet},
     env,
@@ -7,9 +8,15 @@ use std::{
     io::{self, Write},
 };
 
+use futures::{stream, StreamExt};
+use reqwest::{
+    blocking as req_blocking,
+    header::{self, HeaderMap, HeaderValue},
+    Client,
+};
+use tokio::{fs as tokio_fs, runtime::Runtime};
+
 use deserialization::{Dep, DepPrefix, ModFull, ModList};
-use futures::StreamExt;
-use reqwest::header::{self, HeaderMap, HeaderValue};
 
 const USER_AGENT: &str = "factorio-crater/0.1.0 (by Shadow0133 aka Aurora)";
 const INTERNAL_MODS: &[&str] =
@@ -17,11 +24,11 @@ const INTERNAL_MODS: &[&str] =
 
 fn download_mod_list() {
     let url = "https://mods.factorio.com/api/mods?page_size=max";
-    let resp = reqwest::blocking::get(url).unwrap().text().unwrap();
+    let resp = req_blocking::get(url).unwrap().text().unwrap();
     fs::write("mods.json", resp).unwrap();
 }
 
-async fn download_mod(req: &reqwest::Client, name: &str) {
+async fn download_mod_meta_full(req: &Client, name: &str) {
     let url = format!("https://mods.factorio.com/api/mods/{name}/full");
     let resp = req
         .execute(req.get(url).build().unwrap())
@@ -30,28 +37,25 @@ async fn download_mod(req: &reqwest::Client, name: &str) {
         .text()
         .await
         .unwrap();
-    tokio::fs::write(format!("mods/{name}.json"), resp)
+    tokio_fs::write(format!("mods/{name}.json"), resp)
         .await
         .unwrap();
 }
 
-fn download_mods<'a>(mod_list: impl Iterator<Item = &'a str>) {
+fn download_mods_meta_full<'a>(mod_list: impl Iterator<Item = &'a str>) {
     let mut headers = HeaderMap::new();
     headers.insert(header::USER_AGENT, HeaderValue::from_static(USER_AGENT));
-    let req = reqwest::Client::builder()
-        .default_headers(headers)
-        .build()
-        .unwrap();
-    let rt = tokio::runtime::Runtime::new().unwrap();
+    let req = Client::builder().default_headers(headers).build().unwrap();
+    let rt = Runtime::new().unwrap();
     let mut futures = vec![];
     for name in mod_list {
         let req = &req;
         futures.push(async move {
-            download_mod(req, name).await;
+            download_mod_meta_full(req, name).await;
             eprintln!("finished downloading {name}");
         });
     }
-    rt.block_on(futures::stream::iter(futures).for_each_concurrent(64, |x| x));
+    rt.block_on(stream::iter(futures).for_each_concurrent(64, |x| x));
 }
 
 fn main() {
@@ -70,14 +74,14 @@ fn main() {
         .collect();
 
     if update_files {
-        download_mods(mod_version_list.keys().map(|x| x.as_str()));
+        download_mods_meta_full(mod_version_list.keys().map(|x| x.as_str()));
         return;
     }
     find_broken_mods(mod_version_list);
 }
 
 #[derive(Clone)]
-struct DepMod {
+struct ModWithInfo {
     deprecated: bool,
     mod_version: String,
     factorio_version: String,
@@ -101,7 +105,7 @@ fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
         {
             mod_map.insert(
                 name,
-                DepMod {
+                ModWithInfo {
                     deprecated: mod_full.deprecated,
                     mod_version: release.version,
                     factorio_version: release.info_json.factorio_version,
@@ -110,9 +114,9 @@ fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
             );
         }
     }
-    write_deps(&mod_map).unwrap();
+    write_mods_with_deps(&mod_map).unwrap();
     let mut deprecated = BTreeSet::<String>::new();
-    let mut rest = BTreeMap::<String, DepMod>::new();
+    let mut rest = BTreeMap::<String, ModWithInfo>::new();
     for (name, m) in &mod_map {
         if m.deprecated {
             deprecated.insert(name.into());
@@ -137,7 +141,7 @@ fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
     let mut typod = BTreeMap::new();
     working.extend(INTERNAL_MODS.iter().map(|x| x.to_string()));
     while !rest.is_empty() {
-        for (name, m) in core::mem::take(&mut rest) {
+        for (name, m) in mem::take(&mut rest) {
             let iter = m
                 .dependencies
                 .iter()
@@ -189,25 +193,27 @@ fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
         }
     }
     eprintln!("broken: {}", broken.len());
-    let mut broken_file = File::create("broken.txt").unwrap();
+    let mut b_file = File::create("broken.txt").unwrap();
     for (name, (m, _)) in &broken {
-        writeln!(broken_file, "{name} for {}", m.factorio_version).unwrap();
+        writeln!(b_file, "{name} for {}", m.factorio_version).unwrap();
     }
 
-    let mut broken_file = File::create("broken_with_reason.txt").unwrap();
+    let mut bwr_file = File::create("broken_with_reason.txt").unwrap();
     for (name, (m, broken_deps)) in &broken {
-        writeln!(broken_file, "{name} for {} because of:", m.factorio_version)
+        writeln!(bwr_file, "{name} for {} because of:", m.factorio_version)
             .unwrap();
         for broken_dep in broken_deps {
-            writeln!(broken_file, "  {broken_dep}").unwrap();
+            writeln!(bwr_file, "  {broken_dep}").unwrap();
         }
     }
     eprintln!("done");
 }
 
-fn write_deps(dep_map: &BTreeMap<String, DepMod>) -> io::Result<()> {
+fn write_mods_with_deps(
+    mod_list: &BTreeMap<String, ModWithInfo>,
+) -> io::Result<()> {
     let mut deps_file = File::create("deps.txt")?;
-    for (name, dep) in dep_map {
+    for (name, dep) in mod_list {
         writeln!(deps_file, "name: {name}")?;
         writeln!(deps_file, "  deprecated: {}", dep.deprecated)?;
         writeln!(deps_file, "  mod version: {}", dep.mod_version)?;
