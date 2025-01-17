@@ -1367,7 +1367,6 @@ Stainless Steel Wagon
 StarCraftMusicPack17
 StarcraftMusic
 StarcraftTerranMusic
-Starmap_Solar_System
 Start-Packs
 StartWithGodModule
 StartingWood
@@ -2363,6 +2362,7 @@ pigo-selector-combinator
 piocu-pause-instead-of-catching-up
 pk-graftorio
 placeable-color-coded-pipes
+planet-timberia
 planetorio_exotic
 plasmaconfig
 plastic-trees
