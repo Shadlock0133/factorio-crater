@@ -188,6 +188,7 @@ Bio_Industries_patch
 Biter-Loot-Module
 BiterBattlesByComfy
 BiterRageModified
+BiterShield
 Biter_Detector_Sentinel_Combinator
 Biter_Seasons
 BitersBegone
@@ -370,6 +371,7 @@ DeadlockStackingForTiberium
 DeadlocksStacking4Pyanadon
 DeathCount
 DeathExploder
+DebugMod_Suumani
 DeepMineALT-Fixed
 Deep_Storage_Unit
 DefiRitn
@@ -906,6 +908,7 @@ More-Equipments-Mod
 More-Exoskeletons
 More-Exoskeletons-MK
 More-Locomotives
+More-asteroid-resources-tweak
 MoreAdvancedCircuits
 MoreElectricTrain
 MoreHonks
@@ -1877,6 +1880,7 @@ custommodpleaseignore2
 cut-and-paste
 cw_thermal_tweak
 cybersyn-extended-signals
+cybersyn-ja
 cybersyn-nullius-fix
 cybersyn-sa
 damageable-spider-leg
@@ -2416,6 +2420,7 @@ pyfusionenergysettings
 pyhightechsettings
 pyindustry_burner_fix
 pylocaleko
+pymodpack
 pymoduleslots
 pypetroleumhandling_fix_Bcarbon_belt
 pypetroleumhandlingsettings

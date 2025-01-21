@@ -16,26 +16,62 @@ pub struct Mod {
     pub latest_release: Option<LatestRelease>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct LatestRelease {
     pub version: String,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct ModFull {
-    pub name: String,
+    pub category: String,
+    pub changelog: Option<String>,
+    pub created_at: String,
+    pub downloads_count: u64,
     #[serde(default)]
     pub deprecated: bool,
+    pub description: Option<String>,
+    pub homepage: String,
+    pub images: Vec<Image>,
+    pub license: Option<License>,
+    pub name: String,
+    pub owner: String,
     pub releases: Vec<Release>,
+    pub score: Option<f32>,
+    pub source_url: Option<String>,
+    pub summary: String,
+    pub tags: Option<Vec<String>>,
+    pub thumbnail: Option<String>,
+    pub title: String,
+    pub updated_at: String,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
+pub struct Image {
+    pub id: String,
+    pub thumbnail: String,
+    pub url: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct License {
+    pub description: String,
+    pub id: String,
+    pub name: String,
+    pub title: String,
+    pub url: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
 pub struct Release {
-    pub version: String,
+    pub download_url: String,
+    pub file_name: String,
     pub info_json: InfoJson,
+    pub released_at: String,
+    pub sha1: String,
+    pub version: String,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct InfoJson {
     #[serde(deserialize_with = "dep_or_vec_dep")]
     pub dependencies: Vec<Dep>, // vec of strings, or single string
@@ -71,6 +107,7 @@ fn dep_or_vec_dep<'de, D: Deserializer<'de>>(
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Dep {
+    pub original: String,
     pub prefix: DepPrefix,
     pub name: String,
     pub version: String,
@@ -87,7 +124,8 @@ pub enum DepPrefix {
 
 impl FromStr for Dep {
     type Err = ();
-    fn from_str(mut s: &str) -> Result<Self, Self::Err> {
+    fn from_str(original: &str) -> Result<Self, Self::Err> {
+        let mut s = original;
         s = s.trim();
         let prefix = if let Some(rest) = s.strip_prefix("(?)") {
             s = rest.trim();
@@ -107,6 +145,7 @@ impl FromStr for Dep {
         let idx = s.find(['<', '=', '>']).unwrap_or(s.len());
         let (name, version) = s.split_at(idx);
         Ok(Self {
+            original: original.to_string(),
             prefix,
             name: name.trim().to_string(),
             version: version.trim().to_string(),
