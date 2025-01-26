@@ -352,9 +352,6 @@ fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
             } else if iter.clone().any(|x| {
                 deprecated.contains(&x.name) | broken.contains_key(&x.name)
             }) {
-                if &*m.factorio_version >= "2.0" {
-                    continue;
-                }
                 let broken_deps = iter
                     .filter(|x| {
                         deprecated.contains(&x.name)
@@ -385,9 +382,11 @@ fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
             if typod.contains_key(&dep.name) {
                 eprint!("typod");
             }
-            eprintln!()
+            eprintln!();
         }
     }
+
+    broken.retain(|_, (m, _)| &*m.factorio_version < "2.0");
     eprintln!("broken: {}", broken.len());
     let mut b_file = File::create("broken.txt").unwrap();
     for (name, (m, _)) in &broken {

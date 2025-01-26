@@ -196,12 +196,12 @@ Zolo-IR3-Modpack for 1.1
 aav-qol-modpack for 1.1
 adams_mod for 1.1
 alexdelia-must-have for 1.1
+an-extension for 0.17
 andoryuu4-personal-modpack for 1.1
 anentiresleeve-pack for 1.1
 archie-tiberium-ir2-compat for 1.1
 as2_krastorio for 1.1
 as2_krastorio_SE for 1.1
-as2_pyanodons for 1.1
 asj-modpack-space for 1.1
 atlas-angelOreus-modpack for 1.1
 azaghal-internal-testing for 1.1
@@ -239,10 +239,8 @@ foxxy_modpack for 1.1
 fvx_vanilla_qol for 1.1
 gahaha-space-exploration for 1.1
 geekbattery-exotic-stuff for 1.1
-geekbattery-ocean-pvp for 1.1
 geekbattery-space-odyssey for 1.1
 gesugaosan-modpack-general for 1.1
-greysmod_bobs for 0.17
 hard-reset for 1.1
 heavily-modded-modpack for 1.1
 hmm-c-weapons for 1.1
@@ -346,7 +344,6 @@ robert-modpack for 1.1
 rp_warfare for 1.1
 ruvotis-modpack for 1.1
 rz-IR2CompatibilityFixes for 1.1
-salocraft for 1.1
 sborOchka-modpack for 1.1
 sborochka-kot for 1.1
 schmitts-modpack for 1.1

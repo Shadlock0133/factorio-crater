@@ -65,6 +65,7 @@ Advanced-Electric-Tweaked
 Advanced-Oil-Refinery
 Advanced-Tanks
 AdvancedCombinator
+AdvancedFuelProcessing
 Advanced_Machines_WIP
 Advanced_Modules_God_Op
 Advanced_Modules_JankyQualityFork
@@ -215,7 +216,6 @@ Bot_Servicing_fixed
 Bot_Tweaks
 Bottleneck_WithDrill
 Bottlenecklk
-BraidyBelts
 BraveNewWorld
 Braver_New_World
 Brighten cells
@@ -539,6 +539,7 @@ Flammable_Oils
 Flammable_Oils_QUICKFIX
 Flammable_Oils_Repacked
 Flammable_Oils_fix
+Flare_Stack_Goa
 Flashlight On Off
 Flow_Control_Fix
 Fluid Void
@@ -558,7 +559,6 @@ Fox-UK
 FreeBuilding
 FriendBlueprints
 Frontier-Extended-Samalander
-FuelTrainStop
 FuelTrainStop-JA
 FunSpeed
 Furnacegenek
@@ -575,7 +575,7 @@ GEnergy
 GJBigPolesAlign
 GLiquid
 GPS_Teleport
-GUI_Unifyer
+GUI_Unifyer_Unified
 GUI_Unifyer_v2
 Galactic_Pioneers
 Gargalo
@@ -966,6 +966,7 @@ NicePlaces
 NilausQOL
 Nmodpack
 No-Belts-Challenge
+No-Qualitycycling
 No-RCU-Rocket
 NoBuildErrorsReborn
 NoFishSpidertron
@@ -1017,6 +1018,7 @@ OreCrushingByHandEXPERIMENTAL
 OreFractions
 Ore_Quilt
 Ore_Quilt2
+OrphanFinderFixed
 OutpostPlanner1-1
 OverloadedTrains
 PCs-Infinite-Ammo-Revived
@@ -1075,6 +1077,8 @@ Potentially_Optimized_Combinators
 Power Armor MK3 v2
 PowerBelt
 PowerCubes
+PowerPole24
+PowerPole26
 Power_Armor_MK3-JA
 Power_Armor_MK4_18
 PoweredBeltsExtended
@@ -1370,6 +1374,7 @@ Stainless Steel Wagon
 StarCraftMusicPack17
 StarcraftMusic
 StarcraftTerranMusic
+Starmap_metal-and-stars
 Start-Packs
 StartWithGodModule
 StartingWood
@@ -1587,6 +1592,7 @@ XMKTP_Nightly
 XZander01
 Xagros_TUONELA_Core
 Xagros_TUONELA_Optimization
+Xander_mod_RU_Locale
 XenosFreightForwardingLandfillFix
 YARMBE
 Yodo_test
@@ -1624,8 +1630,14 @@ accommodating-walls
 achievement-collection
 actual-craft-times-remade
 adamo-catalogue
+adamo-chemical
+adamo-chopper
+adamo-cinefaction
+adamo-clicker
 adamo-clusterio
+adamo-companions
 adamo-contraptions
+adamo-nuclear
 adamo-pipes
 adamo-plumbing
 add-loader-gfx
@@ -2184,6 +2196,7 @@ leighzersciencebottling
 leighzeruraniumautomation
 leighzeruraniumlogistics
 leighzerwubefill
+less_hd_space_age_logistics
 levelsystem
 lexxy-trashcan
 lh_eternity_trees
@@ -2204,6 +2217,7 @@ loader-graphics
 loader-ingredient
 loader_mini
 loader_mini_1x1
+loaders-modernized-xceled
 lob
 localeja
 location-combinator
@@ -2420,7 +2434,6 @@ pyfusionenergysettings
 pyhightechsettings
 pyindustry_burner_fix
 pylocaleko
-pymodpack
 pymoduleslots
 pypetroleumhandling_fix_Bcarbon_belt
 pypetroleumhandlingsettings
@@ -2435,6 +2448,7 @@ qol_by_chomiczek
 qol_research_dedx
 quality-madness
 quality-rebalance
+quantized-inserter
 quantum-storage
 quasars-death-world-pack
 quasars-space-pack
@@ -2808,6 +2822,7 @@ zirsd-mod
 zlinkedchest
 zspeed
 zzYAIM-armors
+zzz-Kux-FinalFixes
 zzz-Kux-ProtoypeExport-Compose
 zzz-last-to-load
 zzzEasyGaming
