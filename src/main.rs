@@ -401,5 +401,30 @@ fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
             writeln!(bwr_file, "  {broken_dep}").unwrap();
         }
     }
+
+    let mut b_file = File::create("broken_for_1.1.txt").unwrap();
+    for (name, (m, _)) in &broken {
+        if m.factorio_version != "1.1" {
+            continue;
+        }
+        writeln!(b_file, "{name} for {}", m.factorio_version).unwrap();
+    }
+
+    let mut bwrf1_1_file =
+        File::create("broken_with_reason_for_1.1.txt").unwrap();
+    for (name, (m, broken_deps)) in &broken {
+        if m.factorio_version != "1.1" {
+            continue;
+        }
+        writeln!(
+            bwrf1_1_file,
+            "{name} for {} because of:",
+            m.factorio_version
+        )
+        .unwrap();
+        for broken_dep in broken_deps {
+            writeln!(bwrf1_1_file, "  {broken_dep}").unwrap();
+        }
+    }
     eprintln!("done");
 }

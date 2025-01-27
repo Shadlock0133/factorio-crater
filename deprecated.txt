@@ -2046,6 +2046,7 @@ folk-shuttle-016e
 foolingaround
 forestry
 forkEarly-3x3-Electric-Furnaces
+fpc_magazine
 fundament_tech
 fusion_catalyst_enabler
 fzMOD
