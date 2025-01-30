@@ -85,6 +85,7 @@ Alien Oil
 AlienGoopCracking
 Alliance
 Alphabet
+Alt_Bobs_Fuels
 AlternativeSteamUpdated
 Ambeente
 AmbientHype
@@ -608,6 +609,7 @@ Half-Life-Sound-Pack
 HandCrankGenerator
 HandyHands_for_016
 HaywireGrenade
+Hazard-Lights-Auto-Lights_Fix
 Hazard-Lights_Fix
 Heavy_Oil_Chemical_Science
 Helicopter
@@ -1674,6 +1676,7 @@ alien-module-adjustments
 aliens
 almost-wireless-circuits
 altMegaBotStart
+alterae_chunk-power
 alternating_quickbar
 always-research-queue
 always-show-stack-size
@@ -2018,7 +2021,6 @@ filter-combinator-updated
 filter-helper-helper
 findmybody
 fire_department
-fish-pole
 fixangelsconcrete
 fixedbzlead
 fkdianli
@@ -2103,6 +2105,7 @@ humor
 ic_tweaks
 ice-water-purification
 ifmisskyCN
+impetus
 improved-ftl
 improved_crushing
 indestructable-biter-bases
@@ -2427,6 +2430,7 @@ py-modules
 py-tiles
 pyVegFix
 py_ai_speed_module
+py_mods_pack
 pyalternativeenergysettings
 pybalance
 pycoalprocessingsettings

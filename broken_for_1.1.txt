@@ -135,6 +135,7 @@ anentiresleeve-pack for 1.1
 archie-tiberium-ir2-compat for 1.1
 as2_krastorio for 1.1
 as2_krastorio_SE for 1.1
+as2_pyanodons for 1.1
 asj-modpack-space for 1.1
 atlas-angelOreus-modpack for 1.1
 azaghal-internal-testing for 1.1

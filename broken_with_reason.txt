@@ -714,6 +714,8 @@ as2_krastorio for 1.1 because of:
 as2_krastorio_SE for 1.1 because of:
   EvoGUI
   simhelper
+as2_pyanodons for 1.1 because of:
+  py_mods_pack
 asj-modpack-space for 1.1 because of:
   space-exploration-hr-graphics
 atlas-angelOreus-modpack for 1.1 because of:
@@ -1039,7 +1041,6 @@ maximo-ups-e-fps for 1.1 because of:
   LandmineGridlock
   modular-buildings
 mein-mod-pag for 1.1 because of:
-  fish-pole
   Invulnerable_Rails_And_Bots
   platforms
   simhelper
