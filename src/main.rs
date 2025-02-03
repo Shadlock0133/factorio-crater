@@ -8,7 +8,7 @@ use std::{
     path::{Path, PathBuf},
     sync::{
         atomic::{AtomicUsize, Ordering},
-        Arc,
+        Arc, Condvar, Mutex,
     },
     thread,
     time::Duration,
@@ -22,10 +22,14 @@ use reqwest::{
     header::{self, HeaderMap, HeaderValue},
     Client,
 };
-use tokio::{fs as tokio_fs, runtime::Runtime};
+use tokio::{
+    fs::{self as tokio_fs},
+    runtime::Runtime,
+};
 
 use deserialization::{
-    Dep, DepPrefix, Image, InfoJson, License, ModFull, ModList, Release,
+    Dep, DepPrefix, FullInfoJson, Image, LatestRelease, License, ModFull,
+    ModList, Release,
 };
 
 const USER_AGENT: &str = "factorio-crater/0.1.0 (by Shadow0133 aka Aurora)";
@@ -40,8 +44,11 @@ fn download_mod_list() {
 
 type Error = Box<dyn core::error::Error + Send + Sync + 'static>;
 
+#[derive(serde::Deserialize)]
 struct PlayerCreds {
+    #[serde(rename = "service-username")]
     username: String,
+    #[serde(rename = "service-token")]
     token: String,
 }
 
@@ -49,14 +56,77 @@ async fn download_mod(
     req: &Client,
     file_name: &str,
     download_url: &str,
+    mods_folder: &Path,
     creds: &PlayerCreds,
 ) -> Result<(), Error> {
     let url = format!(
         "https://mods.factorio.com/{}?username={}&token={}",
         download_url, creds.username, creds.token
     );
-    let resp = req.execute(req.get(url).build()?).await?.text().await?;
-    tokio_fs::write(format!("mods/{file_name}"), resp).await?;
+    let resp = req
+        .execute(req.get(url).build()?)
+        .await?
+        .error_for_status()?
+        .bytes()
+        .await?;
+    tokio_fs::write(mods_folder.join(file_name), resp).await?;
+    Ok(())
+}
+
+fn download_mods<'a>(
+    factorio_instance: &Path,
+    mod_list: impl Iterator<Item = &'a str> + Clone,
+    mod_version_list: &BTreeMap<&'a str, Option<&'a LatestRelease>>,
+) -> Result<(), Error> {
+    let player_creds: PlayerCreds = simd_json::from_reader(File::open(
+        factorio_instance.join("player-data.json"),
+    )?)?;
+
+    let mod_count = mod_list.clone().count();
+    let counter = Arc::new(AtomicUsize::new(0));
+
+    let mut headers = HeaderMap::new();
+    headers.insert(header::USER_AGENT, HeaderValue::from_static(USER_AGENT));
+    let req = Client::builder().default_headers(headers).build()?;
+    let rt = Runtime::new()?;
+
+    let mut futures = vec![];
+    for name in mod_list {
+        let player_creds = &player_creds;
+        let req = &req;
+        let counter = counter.clone();
+        futures.push(async move {
+            let release = mod_version_list[name].unwrap();
+            download_mod(
+                req,
+                &release.file_name,
+                &release.download_url,
+                &factorio_instance.join("mods"),
+                player_creds,
+            )
+            .await
+            .unwrap();
+            counter.fetch_add(1, Ordering::Relaxed);
+        });
+    }
+
+    let pair = Arc::new((Mutex::new(()), Condvar::new()));
+    let pair2 = pair.clone();
+    let _ui = thread::spawn(move || {
+        let (_, cvar) = &*pair;
+        loop {
+            let v = counter.load(Ordering::Relaxed);
+            if v >= mod_count {
+                break;
+            }
+            eprintln!("Downloaded {v}/{mod_count} mods");
+            thread::sleep(Duration::from_secs(1));
+            cvar.notify_one();
+        }
+    });
+    rt.block_on(stream::iter(futures).for_each_concurrent(64, |x| x));
+    let (lock, cvar) = &*pair2;
+    let _a = cvar.wait(lock.lock().unwrap()).unwrap();
     Ok(())
 }
 
@@ -94,7 +164,7 @@ fn download_mods_meta_full<'a>(
         if v >= mod_count {
             break;
         }
-        eprintln!("Downloaded {v}/{mod_count} mods");
+        eprintln!("Downloaded {v}/{mod_count} mods' metadata");
         thread::sleep(Duration::from_secs(1));
     });
     rt.block_on(stream::iter(futures).for_each_concurrent(64, |x| x));
@@ -102,9 +172,24 @@ fn download_mods_meta_full<'a>(
 
 #[derive(clap::Parser)]
 struct Opt {
-    #[clap(short = 'U')]
+    #[arg(short = 'U')]
     update_files: bool,
-    lua_script: Option<PathBuf>,
+
+    #[command(subcommand)]
+    command: Command,
+}
+
+#[derive(clap::Subcommand, Clone)]
+enum Command {
+    Run {
+        lua_script: PathBuf,
+    },
+    Download {
+        #[arg(short = 'f')]
+        factorio_instance: PathBuf,
+        mods: Vec<String>,
+    },
+    FindBrokenMods,
 }
 
 fn main() {
@@ -116,22 +201,30 @@ fn main() {
 
     let modlist: ModList =
         simd_json::from_reader(File::open("mods.json").unwrap()).unwrap();
-    let mod_version_list: BTreeMap<String, Option<String>> = modlist
+    let mod_version_list: BTreeMap<_, Option<_>> = modlist
         .results
-        .into_iter()
-        .map(|x| (x.name, x.latest_release.map(|x| x.version)))
+        .iter()
+        .map(|x| (x.name.as_str(), x.latest_release.as_ref()))
         .collect();
 
-    let mod_list = mod_version_list.keys().map(|x| x.as_str());
+    let mod_list = mod_version_list.keys().copied();
 
     if opts.update_files {
         download_mods_meta_full(mod_list.clone());
     }
 
-    if let Some(script) = &opts.lua_script {
-        run_lua(mod_list, script);
-    } else {
-        find_broken_mods(mod_version_list);
+    match opts.command {
+        Command::Run { lua_script } => run_lua(mod_list, &lua_script),
+        Command::Download {
+            factorio_instance,
+            mods,
+        } => download_mods(
+            &factorio_instance,
+            mods.iter().map(|x| x.as_str()),
+            &mod_version_list,
+        )
+        .unwrap(),
+        Command::FindBrokenMods => find_broken_mods(mod_version_list),
     }
 }
 
@@ -221,7 +314,7 @@ impl UserData for License {
     }
 }
 
-impl UserData for Release {
+impl<INFO: IntoLua + Clone> UserData for Release<INFO> {
     fn add_fields<F: mlua::UserDataFields<Self>>(fields: &mut F) {
         fields.add_field_method_get("download_url", |_, this| {
             Ok(this.download_url.clone())
@@ -242,7 +335,7 @@ impl UserData for Release {
     }
 }
 
-impl UserData for InfoJson {
+impl UserData for FullInfoJson {
     fn add_fields<F: mlua::UserDataFields<Self>>(fields: &mut F) {
         fields.add_field_method_get("dependencies", |_, this| {
             Ok(this.dependencies.clone())
@@ -286,7 +379,9 @@ struct ModWithInfo {
     dependencies: Vec<Dep>,
 }
 
-fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
+fn find_broken_mods<'a>(
+    mod_version_list: BTreeMap<&'a str, Option<&'a LatestRelease>>,
+) {
     eprintln!("all mods: {}", mod_version_list.len());
 
     let mut mod_map = BTreeMap::new();
@@ -296,11 +391,10 @@ fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
         if latest_version.is_some() == mod_full.releases.is_empty() {
             eprintln!("release mismatch for {name}");
         }
-        if let Some(release) = mod_full
-            .releases
-            .into_iter()
-            .find(|x| Some(x.version.as_str()) == latest_version.as_deref())
-        {
+        if let Some(release) = mod_full.releases.into_iter().find(|x| {
+            Some(x.version.as_str())
+                == latest_version.as_ref().map(|x| x.version.as_str())
+        }) {
             mod_map.insert(
                 name,
                 ModWithInfo {
@@ -313,7 +407,7 @@ fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
     }
     let mut deprecated = BTreeSet::<String>::new();
     let mut rest = BTreeMap::<String, ModWithInfo>::new();
-    for (name, m) in &mod_map {
+    for (&name, m) in &mod_map {
         if m.deprecated {
             deprecated.insert(name.into());
         } else {
@@ -345,7 +439,7 @@ fn find_broken_mods(mod_version_list: BTreeMap<String, Option<String>>) {
             if iter.clone().all(|x| working.contains(&x.name)) {
                 working.insert(name);
             } else if let Some(typod_dep) = iter.clone().find(|x| {
-                !mod_map.contains_key(&x.name)
+                !mod_map.contains_key(&*x.name)
                     && !INTERNAL_MODS.contains(&x.name.as_str())
             }) {
                 typod.insert(name, typod_dep.name.clone());

@@ -10,15 +10,12 @@ pub struct ModList {
     pub results: Vec<Mod>,
 }
 
+pub type LatestRelease = Release<ShortInfoJson>;
+
 #[derive(Debug, Deserialize)]
 pub struct Mod {
     pub name: String,
     pub latest_release: Option<LatestRelease>,
-}
-
-#[derive(Debug, Clone, Deserialize)]
-pub struct LatestRelease {
-    pub version: String,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -35,7 +32,7 @@ pub struct ModFull {
     pub license: Option<License>,
     pub name: String,
     pub owner: String,
-    pub releases: Vec<Release>,
+    pub releases: Vec<Release<FullInfoJson>>,
     pub score: Option<f32>,
     pub source_url: Option<String>,
     pub summary: String,
@@ -62,17 +59,22 @@ pub struct License {
 }
 
 #[derive(Debug, Clone, Deserialize)]
-pub struct Release {
+pub struct Release<INFO> {
     pub download_url: String,
     pub file_name: String,
-    pub info_json: InfoJson,
+    pub info_json: INFO,
     pub released_at: String,
     pub sha1: String,
     pub version: String,
 }
 
 #[derive(Debug, Clone, Deserialize)]
-pub struct InfoJson {
+pub struct ShortInfoJson {
+    pub factorio_version: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct FullInfoJson {
     #[serde(deserialize_with = "dep_or_vec_dep")]
     pub dependencies: Vec<Dep>, // vec of strings, or single string
     pub factorio_version: String,
