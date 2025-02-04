@@ -33,7 +33,8 @@ pub struct ModFull {
     pub name: String,
     pub owner: String,
     pub releases: Vec<Release<FullInfoJson>>,
-    pub score: Option<f32>,
+    #[serde(default)]
+    pub score: f32,
     pub source_url: Option<String>,
     pub summary: String,
     pub tags: Option<Vec<String>>,

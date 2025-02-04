@@ -1,5 +1,6 @@
 mod deserialization;
 mod download;
+mod gui;
 mod lua;
 
 use core::mem;
@@ -11,6 +12,7 @@ use std::{
 };
 
 use clap::Parser;
+use gui::run_gui;
 
 use crate::{
     deserialization::{Dep, DepPrefix, LatestRelease, ModFull, ModList},
@@ -68,7 +70,7 @@ fn main() {
     }
 
     match opts.command {
-        None => todo!(),
+        None => run_gui(),
         Some(Command::Run { lua_script }) => run_lua(mod_list, &lua_script),
         Some(Command::Download {
             factorio_instance,
@@ -81,6 +83,18 @@ fn main() {
         .unwrap(),
         Some(Command::FindBrokenMods) => find_broken_mods(mod_version_list),
     }
+}
+
+fn load_mod_map<'a>(
+    mod_list: impl Iterator<Item = &'a str>,
+) -> BTreeMap<&'a str, ModFull> {
+    let mut mod_map = BTreeMap::new();
+    for name in mod_list {
+        let file = File::open(format!("mods/{name}.json")).unwrap();
+        let mod_full: ModFull = simd_json::from_reader(file).unwrap();
+        mod_map.insert(name, mod_full);
+    }
+    mod_map
 }
 
 #[derive(Clone)]
