@@ -1,174 +1,28 @@
 mod deserialization;
+mod download;
+mod lua;
 
 use core::mem;
 use std::{
     collections::{BTreeMap, BTreeSet},
-    fs::{self, File},
+    fs::File,
     io::Write,
-    path::{Path, PathBuf},
-    sync::{
-        atomic::{AtomicUsize, Ordering},
-        Arc, Condvar, Mutex,
-    },
-    thread,
-    time::Duration,
+    path::PathBuf,
 };
 
 use clap::Parser;
-use futures::{stream, StreamExt};
-use mlua::{IntoLua, Lua, UserData};
-use reqwest::{
-    blocking as req_blocking,
-    header::{self, HeaderMap, HeaderValue},
-    Client,
-};
-use tokio::{
-    fs::{self as tokio_fs},
-    runtime::Runtime,
+
+use crate::{
+    deserialization::{Dep, DepPrefix, LatestRelease, ModFull, ModList},
+    download::{download_mod_list, download_mods, download_mods_meta_full},
+    lua::run_lua,
 };
 
-use deserialization::{
-    Dep, DepPrefix, FullInfoJson, Image, LatestRelease, License, ModFull,
-    ModList, Release,
-};
-
-const USER_AGENT: &str = "factorio-crater/0.1.0 (by Shadow0133 aka Aurora)";
 const INTERNAL_MODS: &[&str] =
     &["base", "elevated-rails", "quality", "space-age"];
-
-fn download_mod_list() {
-    let url = "https://mods.factorio.com/api/mods?page_size=max";
-    let resp = req_blocking::get(url).unwrap().text().unwrap();
-    fs::write("mods.json", resp).unwrap();
-}
+const USER_AGENT: &str = "factorio-crater/0.1.0 (by Shadow0133 aka Aurora)";
 
 type Error = Box<dyn core::error::Error + Send + Sync + 'static>;
-
-#[derive(serde::Deserialize)]
-struct PlayerCreds {
-    #[serde(rename = "service-username")]
-    username: String,
-    #[serde(rename = "service-token")]
-    token: String,
-}
-
-async fn download_mod(
-    req: &Client,
-    file_name: &str,
-    download_url: &str,
-    mods_folder: &Path,
-    creds: &PlayerCreds,
-) -> Result<(), Error> {
-    let url = format!(
-        "https://mods.factorio.com/{}?username={}&token={}",
-        download_url, creds.username, creds.token
-    );
-    let resp = req
-        .execute(req.get(url).build()?)
-        .await?
-        .error_for_status()?
-        .bytes()
-        .await?;
-    tokio_fs::write(mods_folder.join(file_name), resp).await?;
-    Ok(())
-}
-
-fn download_mods<'a>(
-    factorio_instance: &Path,
-    mod_list: impl Iterator<Item = &'a str> + Clone,
-    mod_version_list: &BTreeMap<&'a str, Option<&'a LatestRelease>>,
-) -> Result<(), Error> {
-    let player_creds: PlayerCreds = simd_json::from_reader(File::open(
-        factorio_instance.join("player-data.json"),
-    )?)?;
-
-    let mod_count = mod_list.clone().count();
-    let counter = Arc::new(AtomicUsize::new(0));
-
-    let mut headers = HeaderMap::new();
-    headers.insert(header::USER_AGENT, HeaderValue::from_static(USER_AGENT));
-    let req = Client::builder().default_headers(headers).build()?;
-    let rt = Runtime::new()?;
-
-    let mut futures = vec![];
-    for name in mod_list {
-        let player_creds = &player_creds;
-        let req = &req;
-        let counter = counter.clone();
-        futures.push(async move {
-            let release = mod_version_list[name].unwrap();
-            download_mod(
-                req,
-                &release.file_name,
-                &release.download_url,
-                &factorio_instance.join("mods"),
-                player_creds,
-            )
-            .await
-            .unwrap();
-            counter.fetch_add(1, Ordering::Relaxed);
-        });
-    }
-
-    let pair = Arc::new((Mutex::new(()), Condvar::new()));
-    let pair2 = pair.clone();
-    let _ui = thread::spawn(move || {
-        let (_, cvar) = &*pair;
-        loop {
-            let v = counter.load(Ordering::Relaxed);
-            if v >= mod_count {
-                break;
-            }
-            eprintln!("Downloaded {v}/{mod_count} mods");
-            thread::sleep(Duration::from_secs(1));
-            cvar.notify_one();
-        }
-    });
-    rt.block_on(stream::iter(futures).for_each_concurrent(64, |x| x));
-    let (lock, cvar) = &*pair2;
-    let _a = cvar.wait(lock.lock().unwrap()).unwrap();
-    Ok(())
-}
-
-async fn download_mod_meta_full(req: &Client, name: &str) -> Result<(), Error> {
-    let url = format!("https://mods.factorio.com/api/mods/{name}/full");
-    let resp = req.execute(req.get(url).build()?).await?.text().await?;
-    tokio_fs::write(format!("mods/{name}.json"), resp).await?;
-    Ok(())
-}
-
-fn download_mods_meta_full<'a>(
-    mod_list: impl Iterator<Item = &'a str> + Clone,
-) {
-    let mod_count = mod_list.clone().count();
-    let counter = Arc::new(AtomicUsize::new(0));
-
-    let mut headers = HeaderMap::new();
-    headers.insert(header::USER_AGENT, HeaderValue::from_static(USER_AGENT));
-    let req = Client::builder().default_headers(headers).build().unwrap();
-    let rt = Runtime::new().unwrap();
-
-    let mut futures = vec![];
-    for name in mod_list {
-        let req = &req;
-        let counter = counter.clone();
-        futures.push(async move {
-            download_mod_meta_full(req, name).await.unwrap();
-            counter.fetch_add(1, Ordering::Relaxed);
-            // eprintln!("finished downloading {name}");
-        });
-    }
-
-    let _ui = thread::spawn(move || loop {
-        let v = counter.load(Ordering::Relaxed);
-        if v >= mod_count {
-            break;
-        }
-        eprintln!("Downloaded {v}/{mod_count} mods' metadata");
-        thread::sleep(Duration::from_secs(1));
-    });
-    rt.block_on(stream::iter(futures).for_each_concurrent(64, |x| x));
-}
 
 #[derive(clap::Parser)]
 struct Opt {
@@ -176,7 +30,7 @@ struct Opt {
     update_files: bool,
 
     #[command(subcommand)]
-    command: Command,
+    command: Option<Command>,
 }
 
 #[derive(clap::Subcommand, Clone)]
@@ -214,161 +68,18 @@ fn main() {
     }
 
     match opts.command {
-        Command::Run { lua_script } => run_lua(mod_list, &lua_script),
-        Command::Download {
+        None => todo!(),
+        Some(Command::Run { lua_script }) => run_lua(mod_list, &lua_script),
+        Some(Command::Download {
             factorio_instance,
             mods,
-        } => download_mods(
+        }) => download_mods(
             &factorio_instance,
             mods.iter().map(|x| x.as_str()),
             &mod_version_list,
         )
         .unwrap(),
-        Command::FindBrokenMods => find_broken_mods(mod_version_list),
-    }
-}
-
-fn run_lua<'a>(mod_list: impl Iterator<Item = &'a str>, lua_script: &Path) {
-    let mut mod_map = BTreeMap::new();
-    for name in mod_list {
-        let file = File::open(format!("mods/{name}.json")).unwrap();
-        let mod_full: ModFull = simd_json::from_reader(file).unwrap();
-        mod_map.insert(name, mod_full);
-    }
-
-    let lua = Lua::new();
-    lua.globals().set("mods", mod_map).unwrap();
-    let chunk = lua.load(lua_script);
-    chunk.exec().unwrap();
-}
-
-impl UserData for ModFull {
-    fn add_fields<F: mlua::UserDataFields<Self>>(fields: &mut F) {
-        fields.add_field_method_get("category", |_, this| {
-            Ok(this.category.clone())
-        });
-        fields.add_field_method_get("changelog", |_, this| {
-            Ok(this.changelog.clone())
-        });
-        fields.add_field_method_get("created_at", |_, this| {
-            Ok(this.created_at.clone())
-        });
-        fields.add_field_method_get("downloads_count", |_, this| {
-            Ok(this.downloads_count)
-        });
-        fields
-            .add_field_method_get("deprecated", |_, this| Ok(this.deprecated));
-        fields.add_field_method_get("description", |_, this| {
-            Ok(this.description.clone())
-        });
-        fields.add_field_method_get("homepage", |_, this| {
-            Ok(this.homepage.clone())
-        });
-        fields
-            .add_field_method_get("images", |_, this| Ok(this.images.clone()));
-        fields.add_field_method_get("license", |_, this| {
-            Ok(this.license.clone())
-        });
-        fields.add_field_method_get("name", |_, this| Ok(this.name.clone()));
-        fields.add_field_method_get("owner", |_, this| Ok(this.owner.clone()));
-        fields.add_field_method_get("releases", |_, this| {
-            Ok(this.releases.clone())
-        });
-        fields.add_field_method_get("score", |_, this| Ok(this.score));
-        fields.add_field_method_get("source_url", |_, this| {
-            Ok(this.source_url.clone())
-        });
-        fields.add_field_method_get("summary", |_, this| {
-            Ok(this.summary.clone())
-        });
-        fields.add_field_method_get("tags", |_, this| Ok(this.tags.clone()));
-        fields.add_field_method_get("thumbnail", |_, this| {
-            Ok(this.thumbnail.clone())
-        });
-        fields.add_field_method_get("title", |_, this| Ok(this.title.clone()));
-        fields.add_field_method_get("updated_at", |_, this| {
-            Ok(this.updated_at.clone())
-        });
-    }
-}
-
-impl UserData for Image {
-    fn add_fields<F: mlua::UserDataFields<Self>>(fields: &mut F) {
-        fields.add_field_method_get("id", |_, this| Ok(this.id.clone()));
-        fields.add_field_method_get("thumbnail", |_, this| {
-            Ok(this.thumbnail.clone())
-        });
-        fields.add_field_method_get("url", |_, this| Ok(this.url.clone()));
-    }
-}
-
-impl UserData for License {
-    fn add_fields<F: mlua::UserDataFields<Self>>(fields: &mut F) {
-        fields.add_field_method_get("description", |_, this| {
-            Ok(this.description.clone())
-        });
-        fields.add_field_method_get("id", |_, this| Ok(this.id.clone()));
-        fields.add_field_method_get("name", |_, this| Ok(this.name.clone()));
-        fields.add_field_method_get("title", |_, this| Ok(this.title.clone()));
-        fields.add_field_method_get("url", |_, this| Ok(this.url.clone()));
-    }
-}
-
-impl<INFO: IntoLua + Clone> UserData for Release<INFO> {
-    fn add_fields<F: mlua::UserDataFields<Self>>(fields: &mut F) {
-        fields.add_field_method_get("download_url", |_, this| {
-            Ok(this.download_url.clone())
-        });
-        fields.add_field_method_get("file_name", |_, this| {
-            Ok(this.file_name.clone())
-        });
-        fields.add_field_method_get("info_json", |_, this| {
-            Ok(this.info_json.clone())
-        });
-        fields.add_field_method_get("released_at", |_, this| {
-            Ok(this.released_at.clone())
-        });
-        fields.add_field_method_get("sha1", |_, this| Ok(this.sha1.clone()));
-        fields.add_field_method_get("version", |_, this| {
-            Ok(this.version.clone())
-        });
-    }
-}
-
-impl UserData for FullInfoJson {
-    fn add_fields<F: mlua::UserDataFields<Self>>(fields: &mut F) {
-        fields.add_field_method_get("dependencies", |_, this| {
-            Ok(this.dependencies.clone())
-        });
-        fields.add_field_method_get("factorio_version", |_, this| {
-            Ok(this.factorio_version.clone())
-        });
-    }
-}
-
-impl UserData for Dep {
-    fn add_fields<F: mlua::UserDataFields<Self>>(fields: &mut F) {
-        fields.add_field_method_get("original", |_, this| {
-            Ok(this.original.clone())
-        });
-        fields.add_field_method_get("prefix", |_, this| Ok(this.prefix));
-        fields.add_field_method_get("name", |_, this| Ok(this.name.clone()));
-        fields.add_field_method_get("version", |_, this| {
-            Ok(this.version.clone())
-        });
-    }
-}
-
-impl IntoLua for DepPrefix {
-    fn into_lua(self, lua: &Lua) -> mlua::Result<mlua::Value> {
-        mlua::String::wrap(match self {
-            DepPrefix::Incompatible => "incompatible",
-            DepPrefix::Optional => "optional",
-            DepPrefix::HiddenOptional => "hidden-optional",
-            DepPrefix::LoadOrderIndependent => "load-order-independent",
-            DepPrefix::Required => "required",
-        })
-        .into_lua(lua)
+        Some(Command::FindBrokenMods) => find_broken_mods(mod_version_list),
     }
 }
 
