@@ -45,6 +45,7 @@ enum Command {
         factorio_instance: PathBuf,
         mods: Vec<String>,
     },
+    Gui,
     FindBrokenMods,
 }
 
@@ -70,7 +71,8 @@ fn main() {
     }
 
     match opts.command {
-        None => run_gui(),
+        None if opts.update_files => (),
+        None | Some(Command::Gui) => run_gui(),
         Some(Command::Run { lua_script }) => run_lua(mod_list, &lua_script),
         Some(Command::Download {
             factorio_instance,
