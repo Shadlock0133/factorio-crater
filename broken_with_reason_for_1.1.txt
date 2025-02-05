@@ -788,6 +788,7 @@ maximo-ups-e-fps for 1.1 because of:
   LandmineGridlock
   modular-buildings
 mein-mod-pag for 1.1 because of:
+  fish-pole
   Invulnerable_Rails_And_Bots
   platforms
   simhelper

@@ -67,7 +67,7 @@ pub fn download_mods_meta_full<'a>(
         if v >= mod_count {
             break;
         }
-        eprintln!("Downloaded {v}/{mod_count} mods' metadata");
+        eprintln!("Downloaded {v}/{mod_count} mods metadata");
         thread::sleep(Duration::from_secs(1));
     });
     rt.block_on(stream::iter(futures).for_each_concurrent(64, |x| x));

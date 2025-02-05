@@ -11,7 +11,6 @@
 1MyownMod
 1tank100fish
 1x1_Equipment
-1xjc
 2013-car
 2020-mod
 20x20ArmorMK2
@@ -968,7 +967,6 @@ NicePlaces
 NilausQOL
 Nmodpack
 No-Belts-Challenge
-No-Qualitycycling
 No-RCU-Rocket
 NoBuildErrorsReborn
 NoFishSpidertron
@@ -1318,6 +1316,7 @@ ShatteredBwuhuo
 Shift_Tool
 ShinyAngelGFX-casting-machine-patch
 ShockTurretUpdated
+ShoppingChest
 ShredNation_MustHaveMods
 SigmaOne_Military
 Signalized_Couplers
@@ -1682,6 +1681,7 @@ always-research-queue
 always-show-stack-size
 always_day
 always_red_rail_signal
+amhpymodification
 ammo-fill
 ammo-loader-Revise
 ammo-loader-fixed
@@ -1918,6 +1918,7 @@ dectorio-stone-wall
 deep-storage-unit-se
 delta
 depleted-world
+derusting-with-sulfuric-acid
 desert_panels
 destructive-deconstruction
 detached-gun-sounds
@@ -2021,6 +2022,7 @@ filter-combinator-updated
 filter-helper-helper
 findmybody
 fire_department
+fish-pole
 fixangelsconcrete
 fixedbzlead
 fkdianli
@@ -2048,6 +2050,7 @@ folk-shuttle-016e
 foolingaround
 forestry
 forkEarly-3x3-Electric-Furnaces
+fpc_ShoppingChest
 fpc_magazine
 fundament_tech
 fusion_catalyst_enabler
@@ -2388,6 +2391,7 @@ planet-timberia
 planetorio_exotic
 plasmaconfig
 plastic-trees
+platform-map-update
 platforms
 player-combinator
 playerlist-with-gps
@@ -2749,6 +2753,7 @@ vanilla-inserter-names
 vanilla-loaders-fixed
 vanilla-loaders-hd-krastorio-2
 vertical-swap
+vfcrucible
 vivillon_bots_river
 vivillon_bots_version1
 vlochek-br
