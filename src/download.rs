@@ -21,21 +21,26 @@ use tokio::{
     runtime::Runtime,
 };
 
-use crate::{deserialization::LatestRelease, Error, USER_AGENT};
+use crate::{deserialization::LatestRelease, Error, APP_ID, USER_AGENT};
 
 pub fn download_mod_list() {
     let url = "https://mods.factorio.com/api/mods?page_size=max";
     let resp = req_blocking::get(url).unwrap().text().unwrap();
-    fs::write("mods.json", resp).unwrap();
+    fs::write(eframe::storage_dir(APP_ID).unwrap().join("mods.json"), resp)
+        .unwrap();
 }
 
-async fn download_mod_meta_full(
-    req: &Client,
-    name: &str,
-) -> Result<(), Error> {
+async fn download_mod_meta_full(req: &Client, name: &str) -> Result<(), Error> {
     let url = format!("https://mods.factorio.com/api/mods/{name}/full");
     let resp = req.execute(req.get(url).build()?).await?.text().await?;
-    tokio_fs::write(format!("mods/{name}.json"), resp).await?;
+    tokio_fs::write(
+        eframe::storage_dir(APP_ID)
+            .unwrap()
+            .join("mods")
+            .join(format!("{name}.json")),
+        resp,
+    )
+    .await?;
     Ok(())
 }
 
@@ -46,8 +51,7 @@ pub fn download_mods_meta_full<'a>(
     let counter = Arc::new(AtomicUsize::new(0));
 
     let mut headers = HeaderMap::new();
-    headers
-        .insert(header::USER_AGENT, HeaderValue::from_static(USER_AGENT));
+    headers.insert(header::USER_AGENT, HeaderValue::from_static(USER_AGENT));
     let req = Client::builder().default_headers(headers).build().unwrap();
     let rt = Runtime::new().unwrap();
 
@@ -58,7 +62,6 @@ pub fn download_mods_meta_full<'a>(
         futures.push(async move {
             download_mod_meta_full(req, name).await.unwrap();
             counter.fetch_add(1, Ordering::Relaxed);
-            // eprintln!("finished downloading {name}");
         });
     }
 
@@ -115,8 +118,7 @@ pub fn download_mods<'a>(
     let counter = Arc::new(AtomicUsize::new(0));
 
     let mut headers = HeaderMap::new();
-    headers
-        .insert(header::USER_AGENT, HeaderValue::from_static(USER_AGENT));
+    headers.insert(header::USER_AGENT, HeaderValue::from_static(USER_AGENT));
     let req = Client::builder().default_headers(headers).build()?;
     let rt = Runtime::new()?;
 

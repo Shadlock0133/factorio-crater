@@ -6,7 +6,7 @@ mod lua;
 use core::mem;
 use std::{
     collections::{BTreeMap, BTreeSet},
-    fs::File,
+    fs::{self, File},
     io::Write,
     path::PathBuf,
 };
@@ -23,6 +23,7 @@ use crate::{
 const INTERNAL_MODS: &[&str] =
     &["base", "elevated-rails", "quality", "space-age"];
 const USER_AGENT: &str = "factorio-crater/0.1.0 (by Shadow0133 aka Aurora)";
+const APP_ID: &str = "factorio-crater";
 
 type Error = Box<dyn core::error::Error + Send + Sync + 'static>;
 
@@ -50,15 +51,18 @@ enum Command {
 }
 
 fn main() {
+    fs::create_dir_all(eframe::storage_dir(APP_ID).unwrap().join("mods"))
+        .unwrap();
+    let mod_list_file = eframe::storage_dir(APP_ID).unwrap().join("mods.json");
     let opts = Opt::parse();
-    if opts.update_files {
+    if opts.update_files || !mod_list_file.exists() {
         download_mod_list();
         eprintln!("finished downloading the modlist");
     }
 
-    let modlist: ModList =
-        simd_json::from_reader(File::open("mods.json").unwrap()).unwrap();
-    let mod_version_list: BTreeMap<_, Option<_>> = modlist
+    let mod_list: ModList =
+        simd_json::from_reader(File::open(mod_list_file).unwrap()).unwrap();
+    let mod_version_list: BTreeMap<_, Option<_>> = mod_list
         .results
         .iter()
         .map(|x| (x.name.as_str(), x.latest_release.as_ref()))
@@ -72,7 +76,7 @@ fn main() {
 
     match opts.command {
         None if opts.update_files => (),
-        None | Some(Command::Gui) => run_gui(),
+        None | Some(Command::Gui) => run_gui(mod_list),
         Some(Command::Run { lua_script }) => run_lua(mod_list, &lua_script),
         Some(Command::Download {
             factorio_instance,
@@ -92,7 +96,14 @@ fn load_mod_map<'a>(
 ) -> BTreeMap<&'a str, ModFull> {
     let mut mod_map = BTreeMap::new();
     for name in mod_list {
-        let file = File::open(format!("mods/{name}.json")).unwrap();
+        let Ok(file) = File::open(
+            eframe::storage_dir(APP_ID)
+                .unwrap()
+                .join("mods")
+                .join(format!("{name}.json")),
+        ) else {
+            continue;
+        };
         let mod_full: ModFull = simd_json::from_reader(file).unwrap();
         mod_map.insert(name, mod_full);
     }
@@ -113,7 +124,13 @@ fn find_broken_mods<'a>(
 
     let mut mod_map = BTreeMap::new();
     for (name, latest_version) in mod_version_list {
-        let file = File::open(format!("mods/{name}.json")).unwrap();
+        let file = File::open(
+            eframe::storage_dir(APP_ID)
+                .unwrap()
+                .join("mods")
+                .join(format!("{name}.json")),
+        )
+        .unwrap();
         let mod_full: ModFull = simd_json::from_reader(file).unwrap();
         if latest_version.is_some() == mod_full.releases.is_empty() {
             eprintln!("release mismatch for {name}");
