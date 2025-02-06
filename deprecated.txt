@@ -862,6 +862,7 @@ MAIN-DyTech-War
 MMOTO
 MT-heaters
 MaintenanceMadnessRepacked
+Make-bugs
 MakeArtilleryGreatAgain
 MakeArtilleryGreatArtillery
 ManualSpeedLimit
@@ -889,6 +890,7 @@ MinePlanner
 MingusMod
 Mining-Space-Industries
 MirrorUniverse
+MirroredRefineryRecipes
 Missile_defense_systems1
 Mk3 Armor
 Moar-Radar-ymhx
