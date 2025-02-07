@@ -6,11 +6,11 @@ use crate::{
     deserialization::{
         Dep, DepPrefix, FullInfoJson, Image, License, ModFull, Release,
     },
-    load_mod_map,
+    load_mod_list,
 };
 
-pub fn run_lua<'a>(mod_list: impl Iterator<Item = &'a str>, lua_script: &Path) {
-    let mod_map = load_mod_map(mod_list);
+pub fn run_lua(lua_script: &Path) {
+    let mod_map = load_mod_list();
 
     let lua = Lua::new();
     lua.globals().set("mods", mod_map).unwrap();

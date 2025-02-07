@@ -6,7 +6,6 @@ use std::{
     collections::BTreeMap,
     fs::{self, File},
     path::Path,
-    sync::{Arc, Condvar, Mutex},
     thread,
 };
 
@@ -47,8 +46,10 @@ async fn download_mod_meta_full(req: &Client, name: &str) -> Result<(), Error> {
 pub fn download_mods_meta_full<'a>(
     mod_list: impl Iterator<Item = &'a str> + Clone,
 ) {
+    static COUNTER: AtomicUsize = AtomicUsize::new(0);
+
+    // todo: zip
     let mod_count = mod_list.clone().count();
-    let counter = Arc::new(AtomicUsize::new(0));
 
     let mut headers = HeaderMap::new();
     headers.insert(header::USER_AGENT, HeaderValue::from_static(USER_AGENT));
@@ -58,19 +59,19 @@ pub fn download_mods_meta_full<'a>(
     let mut futures = vec![];
     for name in mod_list {
         let req = &req;
-        let counter = counter.clone();
         futures.push(async move {
             download_mod_meta_full(req, name).await.unwrap();
-            counter.fetch_add(1, Ordering::Relaxed);
+            COUNTER.fetch_add(1, Ordering::Relaxed);
         });
     }
 
     let _ui = thread::spawn(move || loop {
-        let v = counter.load(Ordering::Relaxed);
+        let v = COUNTER.load(Ordering::Relaxed);
+        eprint!("{:>12} {v}/{mod_count} mods metadata\r", "Downloading");
         if v >= mod_count {
+            eprintln!();
             break;
         }
-        eprintln!("Downloaded {v}/{mod_count} mods metadata");
         thread::sleep(Duration::from_secs(1));
     });
     rt.block_on(stream::iter(futures).for_each_concurrent(64, |x| x));
@@ -110,12 +111,13 @@ pub fn download_mods<'a>(
     mod_list: impl Iterator<Item = &'a str> + Clone,
     mod_version_list: &BTreeMap<&'a str, Option<&'a LatestRelease>>,
 ) -> Result<(), Error> {
+    static COUNTER: AtomicUsize = AtomicUsize::new(0);
+
     let player_creds: PlayerCreds = simd_json::from_reader(File::open(
         factorio_instance.join("player-data.json"),
     )?)?;
 
     let mod_count = mod_list.clone().count();
-    let counter = Arc::new(AtomicUsize::new(0));
 
     let mut headers = HeaderMap::new();
     headers.insert(header::USER_AGENT, HeaderValue::from_static(USER_AGENT));
@@ -126,7 +128,6 @@ pub fn download_mods<'a>(
     for name in mod_list {
         let player_creds = &player_creds;
         let req = &req;
-        let counter = counter.clone();
         futures.push(async move {
             let release = mod_version_list[name].unwrap();
             download_mod(
@@ -138,26 +139,19 @@ pub fn download_mods<'a>(
             )
             .await
             .unwrap();
-            counter.fetch_add(1, Ordering::Relaxed);
+            COUNTER.fetch_add(1, Ordering::Relaxed);
         });
     }
 
-    let pair = Arc::new((Mutex::new(()), Condvar::new()));
-    let pair2 = pair.clone();
-    let _ui = thread::spawn(move || {
-        let (_, cvar) = &*pair;
-        loop {
-            let v = counter.load(Ordering::Relaxed);
-            if v >= mod_count {
-                break;
-            }
-            eprintln!("Downloaded {v}/{mod_count} mods");
-            thread::sleep(Duration::from_secs(1));
-            cvar.notify_one();
+    let _ui = thread::spawn(move || loop {
+        let v = COUNTER.load(Ordering::Relaxed);
+        eprint!("{:>12} {v}/{mod_count} mods\r", "Downloading");
+        if v >= mod_count {
+            eprintln!();
+            break;
         }
+        thread::sleep(Duration::from_secs(1));
     });
     rt.block_on(stream::iter(futures).for_each_concurrent(64, |x| x));
-    let (lock, cvar) = &*pair2;
-    let _a = cvar.wait(lock.lock().unwrap()).unwrap();
     Ok(())
 }

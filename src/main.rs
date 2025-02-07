@@ -76,8 +76,8 @@ fn main() {
 
     match opts.command {
         None if opts.update_files => (),
-        None | Some(Command::Gui) => run_gui(mod_list),
-        Some(Command::Run { lua_script }) => run_lua(mod_list, &lua_script),
+        None | Some(Command::Gui) => run_gui(),
+        Some(Command::Run { lua_script }) => run_lua(&lua_script),
         Some(Command::Download {
             factorio_instance,
             mods,
@@ -91,23 +91,22 @@ fn main() {
     }
 }
 
-fn load_mod_map<'a>(
-    mod_list: impl Iterator<Item = &'a str>,
-) -> BTreeMap<&'a str, ModFull> {
-    let mut mod_map = BTreeMap::new();
-    for name in mod_list {
-        let Ok(file) = File::open(
-            eframe::storage_dir(APP_ID)
-                .unwrap()
-                .join("mods")
-                .join(format!("{name}.json")),
-        ) else {
+fn load_mod_list() -> Vec<ModFull> {
+    let mut mod_list = Vec::new();
+    let mods = eframe::storage_dir(APP_ID)
+        .unwrap()
+        .join("mods")
+        .read_dir()
+        .unwrap();
+    for m in mods {
+        let m = m.unwrap();
+        let Ok(file) = File::open(m.path()) else {
             continue;
         };
         let mod_full: ModFull = simd_json::from_reader(file).unwrap();
-        mod_map.insert(name, mod_full);
+        mod_list.push(mod_full);
     }
-    mod_map
+    mod_list
 }
 
 #[derive(Clone)]
