@@ -51,27 +51,48 @@ enum Command {
 }
 
 fn main() {
-    fs::create_dir_all(eframe::storage_dir(APP_ID).unwrap().join("mods"))
-        .unwrap();
-    let mod_list_file = eframe::storage_dir(APP_ID).unwrap().join("mods.json");
+    let storage = eframe::storage_dir(APP_ID).unwrap();
+    fs::create_dir_all(storage.join("mods")).unwrap();
+    let mod_list_file = storage.join("mods.json");
+
     let opts = Opt::parse();
+
+    let mut mod_list: ModList =
+        simd_json::from_reader(File::open(&mod_list_file).unwrap()).unwrap();
+
     if opts.update_files || !mod_list_file.exists() {
-        download_mod_list();
+        let old_mod_list: BTreeMap<String, Option<String>> = mod_list
+            .results
+            .into_iter()
+            .map(|x| (x.name, x.latest_release.map(|x| x.sha1)))
+            .collect();
+        let new_mod_list = download_mod_list();
+        fs::write(mod_list_file, &new_mod_list).unwrap();
+        let new_mod_list =
+            simd_json::from_slice::<ModList>(&mut new_mod_list.into_bytes())
+                .unwrap();
         eprintln!("finished downloading the modlist");
-    }
-
-    let mod_list: ModList =
-        simd_json::from_reader(File::open(mod_list_file).unwrap()).unwrap();
-    let mod_version_list: BTreeMap<_, Option<_>> = mod_list
-        .results
-        .iter()
-        .map(|x| (x.name.as_str(), x.latest_release.as_ref()))
-        .collect();
-
-    let mod_list = mod_version_list.keys().copied();
-
-    if opts.update_files {
-        download_mods_meta_full(mod_list.clone());
+        // todo: compare and only download new metadata
+        download_mods_meta_full(
+            new_mod_list
+                .results
+                .iter()
+                .map(|x| {
+                    (
+                        x.name.as_str(),
+                        x.latest_release.as_ref().map(|x| x.sha1.as_str()),
+                    )
+                })
+                .filter(|&(name, sha1)| {
+                    old_mod_list
+                        .get(name)
+                        .and_then(|x| x.as_deref())
+                        .zip(sha1)
+                        .is_some_and(|(a, b)| a != b)
+                })
+                .map(|(name, _)| name),
+        );
+        mod_list = new_mod_list;
     }
 
     match opts.command {
@@ -81,13 +102,27 @@ fn main() {
         Some(Command::Download {
             factorio_instance,
             mods,
-        }) => download_mods(
-            &factorio_instance,
-            mods.iter().map(|x| x.as_str()),
-            &mod_version_list,
-        )
-        .unwrap(),
-        Some(Command::FindBrokenMods) => find_broken_mods(mod_version_list),
+        }) => {
+            let mod_version_list: BTreeMap<_, Option<_>> = mod_list
+                .results
+                .iter()
+                .map(|x| (x.name.as_str(), x.latest_release.as_ref()))
+                .collect();
+            download_mods(
+                &factorio_instance,
+                mods.iter().map(|x| x.as_str()),
+                &mod_version_list,
+            )
+            .unwrap()
+        }
+        Some(Command::FindBrokenMods) => {
+            let mod_version_list: BTreeMap<_, Option<_>> = mod_list
+                .results
+                .iter()
+                .map(|x| (x.name.as_str(), x.latest_release.as_ref()))
+                .collect();
+            find_broken_mods(mod_version_list);
+        }
     }
 }
 

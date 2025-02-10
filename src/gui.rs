@@ -37,7 +37,7 @@ fn draw_mod_list_item(ui: &mut egui::Ui, m: &ModFull) {
                 );
             }
 
-            b.heading(&m.name);
+            b.heading(&m.title);
             b.label(format!("by {}", m.owner));
             b.label(&m.summary);
         });

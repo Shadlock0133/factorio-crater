@@ -2,12 +2,7 @@ use core::{
     sync::atomic::{AtomicUsize, Ordering},
     time::Duration,
 };
-use std::{
-    collections::BTreeMap,
-    fs::{self, File},
-    path::Path,
-    thread,
-};
+use std::{collections::BTreeMap, fs::File, path::Path, thread};
 
 use futures::{stream, StreamExt};
 use reqwest::{
@@ -22,11 +17,9 @@ use tokio::{
 
 use crate::{deserialization::LatestRelease, Error, APP_ID, USER_AGENT};
 
-pub fn download_mod_list() {
+pub fn download_mod_list() -> String {
     let url = "https://mods.factorio.com/api/mods?page_size=max";
-    let resp = req_blocking::get(url).unwrap().text().unwrap();
-    fs::write(eframe::storage_dir(APP_ID).unwrap().join("mods.json"), resp)
-        .unwrap();
+    req_blocking::get(url).unwrap().text().unwrap()
 }
 
 async fn download_mod_meta_full(req: &Client, name: &str) -> Result<(), Error> {
@@ -48,13 +41,14 @@ pub fn download_mods_meta_full<'a>(
 ) {
     static COUNTER: AtomicUsize = AtomicUsize::new(0);
 
-    // todo: zip
     let mod_count = mod_list.clone().count();
+    let rt = Runtime::new().unwrap();
 
     let mut headers = HeaderMap::new();
     headers.insert(header::USER_AGENT, HeaderValue::from_static(USER_AGENT));
     let req = Client::builder().default_headers(headers).build().unwrap();
-    let rt = Runtime::new().unwrap();
+
+    // todo: zip
 
     let mut futures = vec![];
     for name in mod_list {

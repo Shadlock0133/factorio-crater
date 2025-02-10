@@ -5,7 +5,6 @@ edition = "2021"
 license = "MIT"
 
 [dependencies]
-async_zip = { version = "0.0.17", features = ["async-compression", "deflate", "zstd"] }
 clap = { version = "4.5.26", features = ["derive"] }
 eframe = { version = "0.31.0", features = ["persistence"] }
 egui_extras = { version = "0.31.0", features = ["image", "http"] }
