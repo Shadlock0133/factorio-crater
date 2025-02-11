@@ -169,6 +169,7 @@ SteamTrains-Graphics for 1.1
 StephensModPack for 1.00
 StephensQOLModPack for 1.1
 StsSEK2BZmodpack for 1.1
+THiveModFix for 1.1
 Teddys-QOL for 1.1
 TileMiner for 0.17
 Tmas-QoL for 1.1

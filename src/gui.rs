@@ -74,31 +74,33 @@ impl App for Gui {
                 ui.heading(&m.title);
                 ui.label(format!("by {}", &m.owner));
                 egui::ScrollArea::vertical().show(ui, |ui| {
-                    ui.group(|ui| {
-                        egui::ScrollArea::horizontal().show(ui, |ui| {
-                            ui.horizontal(|ui| {
-                                for image in &m.images {
-                                    let (id, rect) =
-                                        ui.allocate_space(Vec2::splat(SIZE));
-                                    ui.put(
-                                        rect,
-                                        egui::Image::new(&image.thumbnail)
-                                            .max_size(Vec2::splat(SIZE)),
-                                    );
-                                    if ui
-                                        .interact(rect, id, Sense::click())
-                                        .clicked()
-                                    {
-                                        self.selected_image =
-                                            Some(image.url.clone());
+                    if !m.images.is_empty() {
+                        ui.group(|ui| {
+                            egui::ScrollArea::horizontal().show(ui, |ui| {
+                                ui.horizontal(|ui| {
+                                    for image in &m.images {
+                                        let (id, rect) = ui
+                                            .allocate_space(Vec2::splat(SIZE));
+                                        ui.put(
+                                            rect,
+                                            egui::Image::new(&image.thumbnail)
+                                                .max_size(Vec2::splat(SIZE)),
+                                        );
+                                        if ui
+                                            .interact(rect, id, Sense::click())
+                                            .clicked()
+                                        {
+                                            self.selected_image =
+                                                Some(image.url.clone());
+                                        }
                                     }
-                                }
+                                });
                             });
+                            if let Some(image) = &self.selected_image {
+                                ui.image(image);
+                            }
                         });
-                        if let Some(image) = &self.selected_image {
-                            ui.image(image);
-                        }
-                    });
+                    }
                     ui.label(m.description.as_deref().unwrap_or_default());
                 });
             }

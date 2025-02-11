@@ -281,6 +281,7 @@ CmUtils
 CoalKraken-0_17
 CoalToHeavy
 ColonialIndustry
+ColonyBuilder-fix
 ColorTIERHR
 Color_Combinator_Lamp_Posts
 ColorblindCircuitNetwork_fix
@@ -620,6 +621,7 @@ Hide_Mod_Info
 HighPowerSolar2
 HiveMind-Chinese
 Hive_Mind_MitchPlay_Mayhem
+Hive_Mind_MitchPlay_revise
 Hive_Mind_Remastered
 Hover-Car-17
 Humanoids-fixed
@@ -961,6 +963,7 @@ Natural_Evolution_Enemies_Redux
 Natural_Evolution_Expansion
 Ndaruhp-Car
 NearlyInfinityResearch
+New-machines
 NewBulletTypes
 NewInstantBP
 NewOreProcessing
@@ -1186,6 +1189,7 @@ RemoveChemicalBatteries
 RequestFromBlueprint
 ResearchAllTechnologies
 ResearchAnnouncer
+ResearchFog2
 ResearchProgressFrame_updated
 ResearchRevolution
 ResearchString
@@ -1378,6 +1382,7 @@ StarCraftMusicPack17
 StarcraftMusic
 StarcraftTerranMusic
 Starmap_metal-and-stars
+Starmap_metal-and-stars-fork
 Start-Packs
 StartWithGodModule
 StartingWood
@@ -1996,9 +2001,12 @@ factorissimo-2-forked
 factorissimo-2-notnotmelon-mcmodderHD
 factorissimo-3-wetspaghett-version
 factorissimo-power-pole-addon
+factorist_additions
+factorist_tweaks
 factory-floor
 factory-levels-compat-patch
 factory_modules
+factory_teleporter
 fake-new-rails-2
 far-reach-015
 far-reach_17
@@ -2082,6 +2090,7 @@ god-module-Neu
 god-module-and-InstantBP
 goodbye-crude-oil
 graftorio2-ma
+greedy-inserter
 greens-torture-science
 greysmod_pack
 greysmod_pollutants
@@ -2707,6 +2716,8 @@ towerdefense
 toxic-jungle
 train-safety
 trainGoesFast
+train_deadlock_finder
+train_multiple_provider
 trainpause
 trainpause2
 tram

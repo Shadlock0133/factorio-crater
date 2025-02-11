@@ -597,6 +597,8 @@ StsSEK2BZmodpack for 1.1 because of:
   UltimateResearchQueue
   PipeVisualizer
   RecipeBook
+THiveModFix for 1.1 because of:
+  Hive_Mind_MitchPlay_revise
 Teddys-QOL for 1.1 because of:
   copy-machine-orientation
   RecipeBook
@@ -1238,6 +1240,7 @@ silent-pack-2021-1 for 1.1 because of:
   EvoGUI
   LtnManager
   platforms
+  train_deadlock_finder
 simplepack_angel for 0.18 because of:
   angelsaddons-crawlertrain
   angelsaddons-oresilos

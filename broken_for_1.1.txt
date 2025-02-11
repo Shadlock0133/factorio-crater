@@ -113,6 +113,7 @@ SquidCoder_Factorio_101 for 1.1
 SteamTrains-Graphics for 1.1
 StephensQOLModPack for 1.1
 StsSEK2BZmodpack for 1.1
+THiveModFix for 1.1
 Teddys-QOL for 1.1
 Tmas-QoL for 1.1
 TnoQOL for 1.1

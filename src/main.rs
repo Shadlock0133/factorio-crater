@@ -61,6 +61,19 @@ fn main() {
         simd_json::from_reader(File::open(&mod_list_file).unwrap()).unwrap();
 
     if opts.update_files || !mod_list_file.exists() {
+        let mod_json_list: BTreeSet<String> =
+            fs::read_dir(storage.join("mods"))
+                .unwrap()
+                .map(|x| {
+                    x.unwrap()
+                        .file_name()
+                        .into_string()
+                        .unwrap()
+                        .strip_suffix(".json")
+                        .unwrap()
+                        .to_string()
+                })
+                .collect();
         let old_mod_list: BTreeMap<String, Option<String>> = mod_list
             .results
             .into_iter()
@@ -88,7 +101,9 @@ fn main() {
                         .get(name)
                         .and_then(|x| x.as_deref())
                         .zip(sha1)
-                        .is_some_and(|(a, b)| a != b)
+                        .map(|(a, b)| a != b)
+                        .unwrap_or(true)
+                        | !mod_json_list.contains(name)
                 })
                 .map(|(name, _)| name),
         );
@@ -164,7 +179,7 @@ fn find_broken_mods<'a>(
                 .join("mods")
                 .join(format!("{name}.json")),
         )
-        .unwrap();
+        .expect(&format!("{name}"));
         let mod_full: ModFull = simd_json::from_reader(file).unwrap();
         if latest_version.is_some() == mod_full.releases.is_empty() {
             eprintln!("release mismatch for {name}");
