@@ -267,6 +267,7 @@ Chinese_zh-TW
 CircuitProcessing_fixfor110
 Circuit_Power_Measurement_Combinator
 Circuit_Power_Measurement_Pole
+Circuit_Repeater
 CircuitsUI
 CitiesOfEarth
 CitiesOfEarth2
@@ -1168,7 +1169,6 @@ ReallyPressureTanks
 RebalanceFromMattias
 RebalancedOilProduction
 RebalancedSciencefromMattias
-RecipeBook
 RecipeBookTEMP
 RecipeDump
 RecipeTweaks
@@ -1183,6 +1183,7 @@ Red Alerts
 Red_Assembling_Machine
 RefineIron
 RefinedNetworkStorage
+Refoliant_m
 Reinforced-Walls-016
 RelicRealm_test2
 RemoveChemicalBatteries

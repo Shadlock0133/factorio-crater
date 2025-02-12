@@ -10,7 +10,6 @@ AllMods for 1.1 because of:
   cargo-ships-seraph
 Amuxix_qol_collection for 1.1 because of:
   PipeVisualizer
-  RecipeBook
   simhelper
 AngelsBobsSelection for 0.18 because of:
   angelsaddons-oresilos
@@ -53,7 +52,6 @@ BiomassPack for 1.1 because of:
 Blood-N-Wine-Factorio-Edition for 1.1 because of:
   EnableResearchQueue
   RealisticReactors
-  RecipeBook
   simhelper
 BlueprintScanner for 0.15 because of:
   data-raw-prototypes
@@ -63,7 +61,6 @@ BroSEFEnE-Informational for 1.1 because of:
   PipeVisualizer
 BroSEFEnE-Player-QoL for 1.1 because of:
   UltimateResearchQueue
-  RecipeBook
   QuickItemSearch
 BroSEFEnE-Required for 1.1 because of:
   LtnManager
@@ -81,7 +78,6 @@ Chens-modpack_bob-py-qol for 1.1 because of:
   Chens-modpack_qol
 Chens-modpack_qol for 1.1 because of:
   FilterInsertersBegone
-  RecipeBook
   UltimateResearchQueue
 CollectionOfScenarios for 1.1 because of:
   capitalism
@@ -98,8 +94,6 @@ DaThomasSpacePack for 1.1 because of:
   Air-Filtering_Fix
   LtnManager
   simhelper
-DabAndSuh for 1.1 because of:
-  RecipeBook
 DarksModpack for 0.18 because of:
   angelsaddons-crawlertrain
   angelsaddons-oresilos
@@ -116,7 +110,6 @@ DifferentFactories for 1.1 because of:
   additional-paste-settings
   Automatic_Underground_Pipe_Connectors_Continued
   Color_Combinator_Lamp_Posts
-  RecipeBook
   Kux-BlueprintEditor
   IndustrialDisplayPlates
   Simple_Circuit_Trains
@@ -196,12 +189,10 @@ Future-Technology-Factorio-Modpack-IR3 for 1.1 because of:
   EvoGUI
   PipeVisualizer
   QuickItemSearch
-  RecipeBook
 Future-Technology-Factorio-Modpack-sek2 for 1.1 because of:
   EvoGUI
   PipeVisualizer
   QuickItemSearch
-  RecipeBook
   simple_landfill_mining
 GDIW_Bergius for 0.14 because of:
   Bergius_Process
@@ -230,7 +221,6 @@ HX_extended_MP for 1.1 because of:
   logistic-memory-units
 INSANEMODE for 1.1 because of:
   FilterInsertersBegone
-  RecipeBook
   TintedGhosts
   TrainGroups
   TrainStatusIcons
@@ -320,7 +310,6 @@ JALOM for 1.1 because of:
   PipeVisualizer
   QuickItemSearch
   RealisticReactors
-  RecipeBook
   se-disable-scan
   simhelper
   space-exploration-productivity
@@ -335,7 +324,6 @@ JBOD_In_Space for 1.1 because of:
   PipeVisualizer
 Jans_QOL_Pack for 1.1 because of:
   EvoGUI
-  RecipeBook
 JoesAngelsWarehousesFixes for 0.18 because of:
   angelsaddons-warehouses
 Jonnys-Dp77-py-Fixes for 0.16 because of:
@@ -345,14 +333,12 @@ KS-Combat-sniper-fix for 0.17 because of:
   KS_Combat
 Kaimdrol-QOL-choices for 1.1 because of:
   EvoGUI
-  RecipeBook
   simhelper
 Kr_ja for 0.18 because of:
   Krastorio
 KrastorioLightedElectricPolesReachFix for 0.17 because of:
   Krastorio
 KrastorioModPack for 1.1 because of:
-  RecipeBook
   Not_Enough_Todo
   Induction Charging
 Kux-PitchBlack for 1.1 because of:
@@ -366,7 +352,6 @@ LTN_Tracker_beta for 0.17 because of:
 LandfillConverter for 0.15 because of:
   A Sea Block Config
 LaziestModPack for 1.1 because of:
-  RecipeBook
   TrainGroups
 LazyNewbNotSE for 1.1 because of:
   June_PoweredConcrete
@@ -393,13 +378,11 @@ MatrixDJ96-Marsh-AngelBobs-Modpack for 1.1 because of:
   EvoGUI
   Natural_Evolution_Buildings2
   Natural_Evolution_Enemies_Redux
-  RecipeBook
   wireless-charging-lib_v18
   wireless-charging_v18
 MatrixDJ96-Marsh-AngelBobs-Modpack-PATCH for 1.1 because of:
   EvoGUI
   Natural_Evolution_Enemies_Redux
-  RecipeBook
   wireless-charging-lib_v18
   wireless-charging_v18
 MatrixDJ96-QOL-Modpack for 1.1 because of:
@@ -455,11 +438,9 @@ NixieTubesThreeDigits for 1.1 because of:
   simhelper
 NulliusBasedModpack for 1.1 because of:
   PipeVisualizer
-  RecipeBook
 Odd-QoL for 1.1 because of:
   PipeVisualizer
   QuickItemSearch
-  RecipeBook
 OpusMagnoBasicQoLMods for 1.1 because of:
   PipeVisualizer
 OverclockModules for 0.14.0 because of:
@@ -484,7 +465,6 @@ ProjectFactorio for 1.1 because of:
   Krastorio2_Menu_Backgrounds_By_TehFocus
   LtnManager
   RealisticReactors
-  RecipeBook
   simhelper
 PugnaciousPack for 0.18 because of:
   ArtilleryFlares
@@ -551,7 +531,6 @@ SmoothestGameplay for 1.1 because of:
   additional-paste-settings
   Automatic_Underground_Pipe_Connectors_Continued
   Color_Combinator_Lamp_Posts
-  RecipeBook
   Kux-BlueprintEditor
   IndustrialDisplayPlates
   Simple_Circuit_Trains
@@ -562,18 +541,15 @@ Space-Exploration-N1rOo-modpack for 1.1 because of:
   EvoGUI
   LtnManager
   PipeVisualizer
-  RecipeBook
   space-exploration-stuff
   UltimateResearchQueue
   TintedGhosts
 Spacedestructor-Islands for 1.1 because of:
   EvoGUI
   LtnManager
-  RecipeBook
   simhelper
 Spacedestructor-Space-Exploration-Modpack for 1.1 because of:
   EvoGUI
-  RecipeBook
 SpeaceBlock for 0.18 because of:
   angelsaddons-warehouses
   A Sea Block Config
@@ -596,12 +572,10 @@ StsSEK2BZmodpack for 1.1 because of:
   RealisticReactors
   UltimateResearchQueue
   PipeVisualizer
-  RecipeBook
 THiveModFix for 1.1 because of:
   Hive_Mind_MitchPlay_revise
 Teddys-QOL for 1.1 because of:
   copy-machine-orientation
-  RecipeBook
   remote-requests
   TintedGhosts
 TileMiner for 0.17 because of:
@@ -613,14 +587,12 @@ Tmas-QoL for 1.1 because of:
   UltimateResearchQueue
 TnoQOL for 1.1 because of:
   UltimateResearchQueue
-  RecipeBook
 To_The_Future for 0.18 because of:
   dark-matter-replicators-18-patch
   EvoGUI
   ProgressiveRunning
   RaiLuaLib
   RealisticReactors
-  RecipeBook
   resourcehighlighter
 TornBreezes_must_have_mods for 1.1 because of:
   EvoGUI
@@ -679,7 +651,6 @@ YiPack for 1.1 because of:
   boblogistics-belt-reskin
   IndustrialDisplayPlates
 ZO-personal for 1.1 because of:
-  RecipeBook
   Color_Combinator_Lamp_Posts
   Empty_Miner_Tool
   IndustrialDisplayPlates
@@ -689,7 +660,6 @@ Zolo-IR3-Modpack for 1.1 because of:
   EvoGUI
   PipeVisualizer
   QuickItemSearch
-  RecipeBook
 aav-qol-modpack for 1.1 because of:
   PipeVisualizer
 adams_mod for 1.1 because of:
@@ -706,7 +676,6 @@ an-extension for 0.17 because of:
 andoryuu4-personal-modpack for 1.1 because of:
   PipeVisualizer
   TrainGroups
-  RecipeBook
 anentiresleeve-pack for 1.1 because of:
   cholericcars
 archie-tiberium-ir2-compat for 1.1 because of:
@@ -735,7 +704,6 @@ beyond-vanilla-qol for 1.1 because of:
   lo-remote-constant
   PipeVisualizer
   QuickItemSearch
-  RecipeBook
   TrainGroups
 beyond-vanilla-qol-plus for 1.1 because of:
   beyond-vanilla-qol
@@ -752,7 +720,6 @@ centaurea-cyanus-qol for 1.1 because of:
 ch-ei-pack for 1.1 because of:
   Moon_Logic
   PipeVisualizer
-  RecipeBook
 cssa-last-stand for 1.1 because of:
   UltimateResearchQueue
 ctrlfrkbobconfig for 0.13 because of:
@@ -761,7 +728,6 @@ ctrlfrkbobmodules for 0.13 because of:
   ctrlfrkbobconfig
 cupcake-essentials for 1.1 because of:
   PipeVisualizer
-  RecipeBook
   TrainGroups
   UltimateResearchQueue
   Simple_Circuit_Trains
@@ -813,7 +779,6 @@ factmeup for 1.1 because of:
   tarantulator
 factorio-2ish-beefy for 1.1 because of:
   FilterInsertersBegone
-  RecipeBook
   TintedGhosts
   TrainGroups
   TrainStatusIcons
@@ -838,10 +803,7 @@ foxxy_modpack for 1.1 because of:
   Flammable_Oils_QUICKFIX
 fvx_vanilla_qol for 1.1 because of:
   PipeVisualizer
-gahaha-space-exploration for 1.1 because of:
-  RecipeBook
 geekbattery-exotic-stuff for 1.1 because of:
-  RecipeBook
   simhelper
 geekbattery-space-odyssey for 1.1 because of:
   TrainGroups
@@ -851,7 +813,6 @@ gesugaosan-modpack-general for 1.1 because of:
 hard-reset for 1.1 because of:
   EvoGUI
   RealisticReactors
-  RecipeBook
   romulinhosresearchqueuealwaystrue
   simhelper
 heavily-modded-modpack for 1.1 because of:
@@ -868,7 +829,6 @@ hmm-g-nuclear for 1.1 because of:
 hmm-gameplay for 1.1 because of:
   hmm-g-nuclear
 hmm-i-gui for 1.1 because of:
-  RecipeBook
   UltimateResearchQueue
 hmm-i-vanillaPlus for 1.1 because of:
   copy-paste-recipe-signals-to-combinator
@@ -886,7 +846,6 @@ hmm-transport for 1.1 because of:
 hylke-qol for 1.1 because of:
   Empty_Miner_Tool
   PipeVisualizer
-  RecipeBook
 hypercursed for 1.1 because of:
   Circuit_Power_Measurement_Combinator
   infinitycorpeslive
@@ -903,18 +862,13 @@ inginfopack for 0.18 because of:
   EvoGUI
 ingqolpack for 0.18 because of:
   inginfopack
-inixyz_qol for 1.1 because of:
-  RecipeBook
 ir-synthetic-gems for 0.17 because of:
   IndustrialRevolution
 ir2-arc-furnace-module for 1.1 because of:
   IndustrialRevolution
 ir2fixes for 1.1 because of:
   IndustrialRevolution
-j00lz-meme-mod for 1.1 because of:
-  RecipeBook
 janes_qol for 1.1 because of:
-  RecipeBook
   TrainGroups
 jcrneep-space-modpack for 1.1 because of:
   actual-craft-times-remade
@@ -926,13 +880,9 @@ jwwolff-mod-pack for 1.1 because of:
 k2se-wq for 1.1 because of:
   simhelper
   space-exploration-hr-graphics
-kangzoels-qol-modpack for 1.1 because of:
-  RecipeBook
 karosieben_modpack for 1.1 because of:
   EvoGUI
   Not_Enough_Todo
-kayospack for 1.1 because of:
-  RecipeBook
 klohgers-chaos-pack for 1.1 because of:
   actual-craft-times-remade
   Induction Charging
@@ -947,11 +897,8 @@ korhal-modpack-bobangel for 1.1 because of:
 korhal-modpack-k2se for 1.1 because of:
   platforms
 korhal-modpack-qol for 1.1 because of:
-  RecipeBook
   PipeVisualizer
   LtnManager
-kras_W2 for 1.1 because of:
-  RecipeBook
 kras_ghoulash for 1.1 because of:
   NPBees2
 krastorio2-branko for 0.18 because of:
@@ -967,7 +914,6 @@ lilacs-base-modpack for 1.1 because of:
   LtnManager
   PipeVisualizer
   QuickItemSearch
-  RecipeBook
 linedown_modpack for 0.17 because of:
   AAI-CraftTab
   angelsaddons-oresilos
@@ -993,7 +939,6 @@ lucky-modpack for 1.1 because of:
   LtnManager
   simhelper
 mabik_full_pack for 1.1 because of:
-  RecipeBook
   refined-wells
   rp_organized_technology
   simhelper
@@ -1055,8 +1000,6 @@ mezzo-streaming-modpack for 1.1 because of:
   LtnManager
   simhelper
   Will-o-the-Wisps_updated
-mins-angelbob for 1.1 because of:
-  RecipeBook
 modpack-by-7 for 1.1 because of:
   dieselTrains
   spidertron-logistics
@@ -1074,12 +1017,8 @@ multiplayer_extreme_modpack for 1.1 because of:
   EvoGUI
   simhelper
   spidertron-logistics
-n-j-mod-pack for 1.1 because of:
-  RecipeBook
 nach0_modpack for 1.1 because of:
   nach0_modpack_compat
-nach0_modpack_248k_k2 for 1.1 because of:
-  nach0_modpack_k2
 nach0_modpack_Supporting_Mods for 1.1 because of:
   OutpostPlanner1-1
   QuickItemSearch
@@ -1095,14 +1034,6 @@ nach0_modpack_compat for 1.1 because of:
   TrainGroups
   RealisticReactors
   copy-paste-recipe-signals-to-combinator
-nach0_modpack_k2 for 1.1 because of:
-  RecipeBook
-nach0_modpack_se_k2 for 1.1 because of:
-  nach0_modpack_k2
-nach0_modpack_se_k2_5dim for 1.1 because of:
-  nach0_modpack_se_k2
-nach0_modpack_se_k2_5dim_248k for 1.1 because of:
-  nach0_modpack_se_k2_5dim
 nanobotsfix-for-IR for 0.17 because of:
   IndustrialRevolution
 necro_painful_modpack for 0.17 because of:
@@ -1130,13 +1061,11 @@ nms-qol for 1.1 because of:
   EvoGUI
   LtnManager
   PipeVisualizer
-  RecipeBook
   UltimateResearchQueue
 nullius-maximus-modpack for 1.1 because of:
   nullius-momenti-modpack
 nullius-momenti-modpack for 1.1 because of:
   PipeVisualizer
-  RecipeBook
 orbadon_mod_collection for 1.1 because of:
   EvoGUI
   LandfillEverything
@@ -1147,16 +1076,8 @@ pampServer2023 for 1.1 because of:
   martincitopants-space-modpack-2022
 povertylogistics_industrialrevolution for 0.17 because of:
   IndustrialRevolution
-prijindal_modpack_essentials for 1.1 because of:
-  RecipeBook
-prijindal_modpack_k2_se for 1.1 because of:
-  nach0_modpack_k2
-  prijindal_modpack_essentials
-prijindal_modpack_vanilla_plus for 1.1 because of:
-  prijindal_modpack_essentials
 puiSelectionSVE for 1.1 because of:
   UltimateResearchQueue
-  RecipeBook
 puiTest for 1.1 because of:
   ev-personal-defence
   More-Exoskeletons
@@ -1175,7 +1096,6 @@ rafal-rubaj-modpack for 1.1 because of:
   Personal-Roboport-Mk3
   More-Exoskeletons
 raiguard-mods-modpack for 1.1 because of:
-  RecipeBook
   QuickItemSearch
   PipeVisualizer
   UltimateResearchQueue
@@ -1191,7 +1111,6 @@ reactorio for 1.1 because of:
 redhats-modpack for 1.1 because of:
   LtnManager
   PipeVisualizer
-  RecipeBook
   simhelper
 reverse-factory-aio-compat for 1.1 because of:
   aio-se-k2
@@ -1207,7 +1126,6 @@ rz-IR2CompatibilityFixes for 1.1 because of:
 sborOchka-modpack for 1.1 because of:
   QuickItemSearch
   UltimateResearchQueue
-  RecipeBook
   LtnManager
   PipeVisualizer
   simhelper
@@ -1215,7 +1133,6 @@ sborochka-kot for 1.1 because of:
   LtnManager
   PipeVisualizer
   QuickItemSearch
-  RecipeBook
   simhelper
   UltimateResearchQueue
 schmitts-modpack for 1.1 because of:
@@ -1233,9 +1150,6 @@ se-lrf-trains for 1.1 because of:
 seqres-qol-mashup for 1.1 because of:
   LtnManager
   PipeVisualizer
-  RecipeBook
-shrimpack-QOL for 1.1 because of:
-  RecipeBook
 silent-pack-2021-1 for 1.1 because of:
   EvoGUI
   LtnManager
@@ -1255,7 +1169,6 @@ singleplayer_extreme_modpack for 1.1 because of:
 smetdenis-mod-pack for 1.1 because of:
   EvoGUI
   LtnManager
-  RecipeBook
   UltimateResearchQueue
 sole-survivor for 1.1 because of:
   Burner_Drill_4x4_Area
@@ -1289,7 +1202,6 @@ steinio-s-Factorio-essentials for 1.1 because of:
   InserterFuelLeechPatched
   LtnManager
   PipeVisualizer
-  RecipeBook
   Rich_Text_Helper
   TrainStatusIcons
 steinios_research_sensor for 1.1 because of:
@@ -1297,7 +1209,6 @@ steinios_research_sensor for 1.1 because of:
 sztosz_qol for 1.1 because of:
   EvoGUI
   PipeVisualizer
-  RecipeBook
 test_adams_mod for 1.1 because of:
   Circuit_Power_Measurement_Combinator
   Moon_Logic
@@ -1308,20 +1219,17 @@ thar0l-modpack-abc-base for 1.1 because of:
 thar0l-modpack-abc-full for 1.1 because of:
   thar0l-modpack-abc-base
 thar0l-modpack-abc-qol for 1.1 because of:
-  RecipeBook
   QuickItemSearch
 thenauvitian for 1.1 because of:
   gas-me-up
 timspeedle-modpack-qol for 1.1 because of:
   PipeVisualizer
-  RecipeBook
   remote-requests
   TintedGhosts
   UltimateResearchQueue
 trainpainpack for 1.1 because of:
   Train-Speed-Multiplier
 tsk_pack for 1.1 because of:
-  RecipeBook
   UltimateResearchQueue
 ukezi_Construction_Drones_IR_Compatibility for 0.17 because of:
   IndustrialRevolution
@@ -1343,16 +1251,12 @@ v0-18_nothing_v1-1 for 1.0 because of:
   IndustrialDisplayPlates
   Simple_Circuit_Trains
 vanilla-enhanced for 1.1 because of:
-  RecipeBook
   shrek2
 verdeks-modpack for 1.1 because of:
   Natural-Evolution-Enemies-Research-Fix
   Natural_Evolution_Buildings2
-  RecipeBook
 viktorious_modpack for 1.1 because of:
   spidertron-logistics
-vq-modpack-qol for 1.1 because of:
-  RecipeBook
 vtk-deep-core-mining-ir for 0.17 because of:
   IndustrialRevolution
 warptorio_pack for 1.1 because of:
@@ -1386,13 +1290,11 @@ wocpack for 1.1 because of:
 wocpack2 for 1.1 because of:
   LtnManager
   QuickItemSearch
-  RecipeBook
 xboxxxxd_modpack for 1.1 because of:
   tarantulator
   PipeVisualizer
 yam_modpack_mithrahn for 1.1 because of:
   PipeVisualizer
-  RecipeBook
   shrek2
   UltimateResearchQueue
 yqur3-content for 1.1 because of:
@@ -1401,13 +1303,11 @@ yqur3-content for 1.1 because of:
 yqur3-utility for 1.1 because of:
   PipeVisualizer
   QuickItemSearch
-  RecipeBook
   UltimateResearchQueue
   TintedGhosts
 zo-IR-pack for 1.1 because of:
   Color_Combinator_Lamp_Posts
   Empty_Miner_Tool
-  RecipeBook
   SpillProof
   PipeVisualizer
   TrainGroups
@@ -1418,7 +1318,6 @@ zo-pack for 1.1 because of:
   Empty_Miner_Tool
   IndustrialDisplayPlates
   Kux-BlueprintEditor
-  RecipeBook
 zo_server_PvP for 1.1 because of:
   LandmineGridlock
 zombie_land for 0.16 because of:
