@@ -30,7 +30,7 @@ type Error = Box<dyn core::error::Error + Send + Sync + 'static>;
 #[derive(clap::Parser)]
 struct Opt {
     #[arg(short = 'U')]
-    update_files: bool,
+    update_all_metadata: bool,
 
     #[command(subcommand)]
     command: Option<Command>,
@@ -57,61 +57,65 @@ fn main() {
 
     let opts = Opt::parse();
 
-    let mut mod_list: ModList =
-        simd_json::from_reader(File::open(&mod_list_file).unwrap()).unwrap();
+    let mut mod_list = File::open(&mod_list_file)
+        .map(|file| simd_json::from_reader::<_, ModList>(file).unwrap())
+        .map(|x| x.results)
+        .unwrap_or_default();
 
-    if opts.update_files || !mod_list_file.exists() {
-        let mod_json_list: BTreeSet<String> =
-            fs::read_dir(storage.join("mods"))
+    let mod_json_list: BTreeSet<String> = fs::read_dir(storage.join("mods"))
+        .unwrap()
+        .map(|x| {
+            x.unwrap()
+                .file_name()
+                .into_string()
                 .unwrap()
-                .map(|x| {
-                    x.unwrap()
-                        .file_name()
-                        .into_string()
-                        .unwrap()
-                        .strip_suffix(".json")
-                        .unwrap()
-                        .to_string()
-                })
-                .collect();
-        let old_mod_list: BTreeMap<String, Option<String>> = mod_list
-            .results
-            .into_iter()
-            .map(|x| (x.name, x.latest_release.map(|x| x.sha1)))
-            .collect();
-        let new_mod_list = download_mod_list();
-        fs::write(mod_list_file, &new_mod_list).unwrap();
-        let new_mod_list =
-            simd_json::from_slice::<ModList>(&mut new_mod_list.into_bytes())
-                .unwrap();
-        eprintln!("finished downloading the modlist");
-        // todo: compare and only download new metadata
-        download_mods_meta_full(
-            new_mod_list
-                .results
-                .iter()
-                .map(|x| {
-                    (
-                        x.name.as_str(),
-                        x.latest_release.as_ref().map(|x| x.sha1.as_str()),
-                    )
-                })
-                .filter(|&(name, sha1)| {
-                    old_mod_list
-                        .get(name)
-                        .and_then(|x| x.as_deref())
-                        .zip(sha1)
-                        .map(|(a, b)| a != b)
-                        .unwrap_or(true)
-                        | !mod_json_list.contains(name)
-                })
-                .map(|(name, _)| name),
-        );
-        mod_list = new_mod_list;
+                .strip_suffix(".json")
+                .unwrap()
+                .to_string()
+        })
+        .collect();
+    let old_mod_list: BTreeMap<String, Option<String>> = mod_list
+        .into_iter()
+        .map(|x| (x.name, x.latest_release.map(|x| x.sha1)))
+        .collect();
+    let new_mod_list = download_mod_list();
+    fs::write(mod_list_file, &new_mod_list).unwrap();
+    let new_mod_list =
+        simd_json::from_slice::<ModList>(&mut new_mod_list.into_bytes())
+            .unwrap()
+            .results;
+    eprintln!("finished downloading the modlist");
+
+    if !opts.update_all_metadata {
+        let updated_mod_list = new_mod_list
+            .iter()
+            .map(|x| {
+                (
+                    x.name.as_str(),
+                    x.latest_release.as_ref().map(|x| x.sha1.as_str()),
+                )
+            })
+            .filter(|&(name, sha1)| {
+                old_mod_list
+                    .get(name)
+                    .and_then(|x| x.as_deref())
+                    .zip(sha1)
+                    .map(|(a, b)| a != b)
+                    .unwrap_or(true)
+                    | !mod_json_list.contains(name)
+            })
+            .map(|(name, _)| name);
+        for x in updated_mod_list.clone() {
+            eprintln!("{x}");
+        }
+        download_mods_meta_full(updated_mod_list);
+    } else {
+        download_mods_meta_full(new_mod_list.iter().map(|x| x.name.as_str()));
     }
+    mod_list = new_mod_list;
 
     match opts.command {
-        None if opts.update_files => (),
+        None if opts.update_all_metadata => (),
         None | Some(Command::Gui) => run_gui(),
         Some(Command::Run { lua_script }) => run_lua(&lua_script),
         Some(Command::Download {
@@ -119,7 +123,6 @@ fn main() {
             mods,
         }) => {
             let mod_version_list: BTreeMap<_, Option<_>> = mod_list
-                .results
                 .iter()
                 .map(|x| (x.name.as_str(), x.latest_release.as_ref()))
                 .collect();
@@ -132,7 +135,6 @@ fn main() {
         }
         Some(Command::FindBrokenMods) => {
             let mod_version_list: BTreeMap<_, Option<_>> = mod_list
-                .results
                 .iter()
                 .map(|x| (x.name.as_str(), x.latest_release.as_ref()))
                 .collect();

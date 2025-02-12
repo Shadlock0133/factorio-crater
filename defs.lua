@@ -58,4 +58,4 @@
 ---| "load-order-independent"
 ---| "required"
 
-_G.mods = mods ---@type table<string, Mod>
+_G.mods = mods ---@type Mod[]

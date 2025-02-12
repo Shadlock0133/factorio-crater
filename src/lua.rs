@@ -10,10 +10,10 @@ use crate::{
 };
 
 pub fn run_lua(lua_script: &Path) {
-    let mod_map = load_mod_list();
+    let mod_list: Vec<ModFull> = load_mod_list();
 
     let lua = Lua::new();
-    lua.globals().set("mods", mod_map).unwrap();
+    lua.globals().set("mods", mod_list).unwrap();
     let chunk = lua.load(lua_script);
     chunk.exec().unwrap();
 }
