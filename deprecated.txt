@@ -252,6 +252,7 @@ Cannon_Spidertron
 CarDrift
 CaramelChinese
 CargoShips-IR3-fuelcompatability
+CargoWeight
 Cargo_Train_Logistics
 Catquarry
 Chainsaw
@@ -914,7 +915,6 @@ More-Equipments-Mod
 More-Exoskeletons
 More-Exoskeletons-MK
 More-Locomotives
-More-asteroid-resources-tweak
 MoreAdvancedCircuits
 MoreElectricTrain
 MoreHonks
@@ -1408,7 +1408,6 @@ SunBarSwap
 SunClear
 SunCubes
 SunModular
-SunResources
 Super-Late-Game
 SuperExpensiveMode
 SuperTanks
@@ -1499,6 +1498,7 @@ TreeCloning
 TreeKiller
 Treefarm-AC
 TreefarmLite
+TurbineTweak
 TurnOnResearchQueue
 Tweaks
 TwiceMK2Capacity
