@@ -1,6 +1,7 @@
 mod deserialization;
 mod download;
 mod gui;
+#[cfg(feature = "lua")]
 mod lua;
 
 use core::mem;
@@ -17,8 +18,9 @@ use gui::run_gui;
 use crate::{
     deserialization::{Dep, DepPrefix, LatestRelease, ModFull, ModList},
     download::{download_mod_list, download_mods, download_mods_meta_full},
-    lua::run_lua,
 };
+#[cfg(feature = "lua")]
+use crate::lua::run_lua;
 
 const INTERNAL_MODS: &[&str] =
     &["base", "elevated-rails", "quality", "space-age"];
@@ -38,6 +40,7 @@ struct Opt {
 
 #[derive(clap::Subcommand, Clone)]
 enum Command {
+    #[cfg(feature = "lua")]
     Run {
         lua_script: PathBuf,
     },
@@ -105,9 +108,9 @@ fn main() {
                     | !mod_json_list.contains(name)
             })
             .map(|(name, _)| name);
-        for x in updated_mod_list.clone() {
-            eprintln!("{x}");
-        }
+        // for x in updated_mod_list.clone() {
+        //     eprintln!("{x}");
+        // }
         download_mods_meta_full(updated_mod_list);
     } else {
         download_mods_meta_full(new_mod_list.iter().map(|x| x.name.as_str()));
@@ -117,6 +120,7 @@ fn main() {
     match opts.command {
         None if opts.update_all_metadata => (),
         None | Some(Command::Gui) => run_gui(),
+        #[cfg(feature = "lua")]
         Some(Command::Run { lua_script }) => run_lua(&lua_script),
         Some(Command::Download {
             factorio_instance,
