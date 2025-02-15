@@ -975,7 +975,6 @@ warringer_vanilla_plus_pack for 1.1 because of:
   OutpostPlanner1-1
   PipeVisualizer
   quickbarimportexport
-  SunResources
   TrainGroups
   UltimateResearchQueue
 weplay_angelbobs for 1.1 because of:
