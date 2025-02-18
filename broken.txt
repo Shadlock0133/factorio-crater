@@ -19,7 +19,6 @@ BlueprintScanner for 0.15
 Booktorio-example for 1.1
 BroSEFEnE-Informational for 1.1
 BroSEFEnE-Player-QoL for 1.1
-BroSEFEnE-Required for 1.1
 BroSEFEnE-Visuals for 1.1
 CRC_Autism for 1.1
 Chaos-modpack for 1.1
@@ -112,13 +111,11 @@ Mania_krastorio for 1.1
 MatrixDJ96-Marsh-AngelBobs-Modpack for 1.1
 MatrixDJ96-Marsh-AngelBobs-Modpack-PATCH for 1.1
 MatrixDJ96-QOL-Modpack for 1.1
-Media-modpack for 1.1
 MeelocksEthryansModpack for 1.1
 MinersPack for 1.1
 Minewolf_modpack for 0.18
 MuroIR2KR2CompFix for 1.1
 N-industrypack for 1.1
-N-logisticspack for 1.1
 N-modpack for 1.1
 N-utilitypack for 1.1
 Nanobots-IR for 0.17
@@ -297,7 +294,6 @@ mein-mod-pag for 1.1
 mezzo-streaming-modpack for 1.1
 modpack-by-7 for 1.1
 modpack-industrial-revolution-2 for 1.1
-modpack-voyager for 1.1
 multiplayer_extreme_modpack for 1.1
 nach0_modpack for 1.1
 nach0_modpack_Supporting_Mods for 1.1

@@ -844,7 +844,6 @@ Long_Underground_Pipes_16_fixed_crash_and_icons
 LongerRangeTurrets
 Longer_Days_and_Nights
 Loot
-LtnManager
 LtnManager-fork-uzere
 LtnManagerModified-SE6
 LuaCombinator2
@@ -1500,6 +1499,7 @@ Treefarm-AC
 TreefarmLite
 TurbineTweak
 TurnOnResearchQueue
+Turret_Range_Buff
 Tweaks
 TwiceMK2Capacity
 TwistedsOverhall
@@ -2322,6 +2322,7 @@ more-virtual-signals
 more_circuit_symbols_zero17
 more_compressor_tier
 more_concrete
+more_trash_updated
 morebobs
 morebobs_bobsStackCrate
 morebobs_flowcontrol
@@ -2345,6 +2346,7 @@ ndaruhpPerpetualMachine
 necromant-trblz
 nee_visible_webs
 nest_for_armoured_biters
+nice-try-train-2
 nice-try-train2
 nifo
 no-aai-iron-pole
@@ -2639,6 +2641,7 @@ spicy-teeth-more-belt-tiers
 spidertron-logistics
 spidertron-logistics-community
 spidertron_automation
+stack4cc
 stacked-items
 stacked-space-science
 stackedrecipes
