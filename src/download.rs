@@ -4,27 +4,69 @@ use core::{
 };
 use std::{collections::BTreeMap, fs::File, path::Path, thread};
 
-use futures::{stream, StreamExt};
+use futures::{StreamExt, stream};
 use reqwest::{
-    blocking as req_blocking,
+    Client, blocking as req_blocking,
     header::{self, HeaderMap, HeaderValue},
-    Client,
 };
 use tokio::{
     fs::{self as tokio_fs},
     runtime::Runtime,
 };
 
-use crate::{deserialization::LatestRelease, Error, APP_ID, USER_AGENT};
+use crate::{APP_ID, Error, USER_AGENT, deserialization::LatestRelease};
 
-pub fn download_mod_list() -> String {
+#[derive(serde::Deserialize)]
+pub struct PlayerCreds {
+    #[serde(rename = "service-username")]
+    username: String,
+    #[serde(rename = "service-token")]
+    token: String,
+}
+
+pub async fn toggle_bookmark(
+    req: &Client,
+    creds: &PlayerCreds,
+    mod_name: &str,
+    on: bool,
+) -> reqwest::Result<()> {
+    let state = match on {
+        true => "on",
+        false => "off",
+    };
+    let url = format!(
+        "https://mods.factorio.com/api/bookmarks\
+        /toggle?username={}&token={}&mod={}&state={}",
+        creds.username, creds.token, mod_name, state
+    );
+    req.post(url).send().await?.error_for_status()?;
+    Ok(())
+}
+
+pub async fn download_bookmark_list(
+    req: &Client,
+    creds: &PlayerCreds,
+) -> reqwest::Result<String> {
+    let url = format!(
+        "https://mods.factorio.com/api/bookmarks?username={}&token={}",
+        creds.username, creds.token
+    );
+    req.get(url).send().await?.error_for_status()?.text().await
+}
+
+pub fn download_mod_list() -> reqwest::Result<String> {
     let url = "https://mods.factorio.com/api/mods?page_size=max";
-    req_blocking::get(url).unwrap().text().unwrap()
+    req_blocking::get(url)?.text()
 }
 
 async fn download_mod_meta_full(req: &Client, name: &str) -> Result<(), Error> {
     let url = format!("https://mods.factorio.com/api/mods/{name}/full");
-    let resp = req.execute(req.get(url).build()?).await?.text().await?;
+    let resp = req
+        .execute(req.get(url).build()?)
+        .await?
+        .error_for_status()?
+        .text()
+        .await?;
     tokio_fs::write(
         eframe::storage_dir(APP_ID)
             .unwrap()
@@ -59,24 +101,18 @@ pub fn download_mods_meta_full<'a>(
         });
     }
 
-    let _ui = thread::spawn(move || loop {
-        let v = COUNTER.load(Ordering::Relaxed);
-        eprint!("{:>12} {v}/{mod_count} mods metadata\r", "Downloading");
-        if v >= mod_count {
-            eprintln!();
-            break;
+    let _ui = thread::spawn(move || {
+        loop {
+            let v = COUNTER.load(Ordering::Relaxed);
+            eprint!("{:>12} {v}/{mod_count} mods metadata\r", "Downloading");
+            if v >= mod_count {
+                eprintln!();
+                break;
+            }
+            thread::sleep(Duration::from_secs(1));
         }
-        thread::sleep(Duration::from_secs(1));
     });
     rt.block_on(stream::iter(futures).for_each_concurrent(64, |x| x));
-}
-
-#[derive(serde::Deserialize)]
-struct PlayerCreds {
-    #[serde(rename = "service-username")]
-    username: String,
-    #[serde(rename = "service-token")]
-    token: String,
 }
 
 async fn download_mod(
@@ -137,14 +173,16 @@ pub fn download_mods<'a>(
         });
     }
 
-    let _ui = thread::spawn(move || loop {
-        let v = COUNTER.load(Ordering::Relaxed);
-        eprint!("{:>12} {v}/{mod_count} mods\r", "Downloading");
-        if v >= mod_count {
-            eprintln!();
-            break;
+    let _ui = thread::spawn(move || {
+        loop {
+            let v = COUNTER.load(Ordering::Relaxed);
+            eprint!("{:>12} {v}/{mod_count} mods\r", "Downloading");
+            if v >= mod_count {
+                eprintln!();
+                break;
+            }
+            thread::sleep(Duration::from_secs(1));
         }
-        thread::sleep(Duration::from_secs(1));
     });
     rt.block_on(stream::iter(futures).for_each_concurrent(64, |x| x));
     Ok(())

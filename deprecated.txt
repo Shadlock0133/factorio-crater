@@ -189,7 +189,6 @@ Bio_Industries_patch
 Biter-Loot-Module
 BiterBattlesByComfy
 BiterRageModified
-BiterShield
 Biter_Detector_Sentinel_Combinator
 Biter_Seasons
 BitersBegone
@@ -584,6 +583,7 @@ Galactic_Pioneers
 Gargalo
 Gavin-zhcn
 Gcn
+Gcn2
 GearGirlSelect
 GearMaking-2
 Geekoids_Fast_Tree_Cutting
@@ -929,6 +929,7 @@ More_Ammo_Balanced
 More_Bonus
 More_Nuclear_reactor_and_Heatboiler
 More_signal_color_stolen
+Moshine-Silica
 Mountains
 Mountains-up
 Multi-Inserters
@@ -978,6 +979,7 @@ NoFishSpidertron
 NoFurnaces_v2
 NoInfiniteFluids
 NoRespawnGun
+NoWidthSpeedPenalty
 NoWoodenCircuits
 Nohomoto_industries
 Not_Enough_Todo
@@ -1540,6 +1542,7 @@ UraniumRedux
 UraniumRework
 Uranium_axe
 Utility
+VFDoubleSpeedFactorissimoFix
 Vehicle Wagon
 Vehicle-Battery-Beta
 VehicleGridIntermediate
@@ -1638,6 +1641,11 @@ aamr-alternative
 accommodating-walls
 achievement-collection
 actual-craft-times-remade
+adamo-blimp
+adamo-calibration
+adamo-carbon
+adamo-casting
+adamo-catalog
 adamo-catalogue
 adamo-chemical
 adamo-chopper
@@ -1646,9 +1654,13 @@ adamo-clicker
 adamo-clusterio
 adamo-companions
 adamo-contraptions
+adamo-electronics
 adamo-nuclear
+adamo-physics
 adamo-pipes
 adamo-plumbing
+adamo-spacesuit
+adamo-sulfur
 add-loader-gfx
 add-loader-u15
 additional-paste-settings
@@ -1850,6 +1862,9 @@ cheaper-fusion-research
 cheaper-inserters
 cheat-mod
 chemi-test-mod
+chens-modpack-py-omni-qol
+chens-modpack-qol-2
+chens-utility-mod
 cholericcars
 chonkyTrainsOnly
 chujianduidie-test
@@ -2352,6 +2367,7 @@ nifo
 no-aai-iron-pole
 no-alerts
 no-obnoxious-blacklist-filter-icon
+no-width-speed-coefficient
 noTeamCoop
 no_clip
 no_rocket_silo_stats

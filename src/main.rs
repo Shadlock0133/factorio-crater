@@ -15,12 +15,12 @@ use std::{
 use clap::Parser;
 use gui::run_gui;
 
+#[cfg(feature = "lua")]
+use crate::lua::run_lua;
 use crate::{
     deserialization::{Dep, DepPrefix, LatestRelease, ModFull, ModList},
     download::{download_mod_list, download_mods, download_mods_meta_full},
 };
-#[cfg(feature = "lua")]
-use crate::lua::run_lua;
 
 const INTERNAL_MODS: &[&str] =
     &["base", "elevated-rails", "quality", "space-age"];
@@ -78,44 +78,51 @@ fn main() {
         })
         .collect();
     let old_mod_list: BTreeMap<String, Option<String>> = mod_list
-        .into_iter()
-        .map(|x| (x.name, x.latest_release.map(|x| x.sha1)))
+        .iter()
+        .map(|x| {
+            (
+                x.name.clone(),
+                x.latest_release.as_ref().map(|x| x.sha1.clone()),
+            )
+        })
         .collect();
-    let new_mod_list = download_mod_list();
-    fs::write(mod_list_file, &new_mod_list).unwrap();
-    let new_mod_list =
-        simd_json::from_slice::<ModList>(&mut new_mod_list.into_bytes())
-            .unwrap()
-            .results;
-    eprintln!("finished downloading the modlist");
-
-    if !opts.update_all_metadata {
-        let updated_mod_list = new_mod_list
-            .iter()
-            .map(|x| {
-                (
-                    x.name.as_str(),
-                    x.latest_release.as_ref().map(|x| x.sha1.as_str()),
-                )
-            })
-            .filter(|&(name, sha1)| {
-                old_mod_list
-                    .get(name)
-                    .and_then(|x| x.as_deref())
-                    .zip(sha1)
-                    .map(|(a, b)| a != b)
-                    .unwrap_or(true)
-                    | !mod_json_list.contains(name)
-            })
-            .map(|(name, _)| name);
-        // for x in updated_mod_list.clone() {
-        //     eprintln!("{x}");
-        // }
-        download_mods_meta_full(updated_mod_list);
-    } else {
-        download_mods_meta_full(new_mod_list.iter().map(|x| x.name.as_str()));
+    if let Ok(new_mod_list) = download_mod_list() {
+        fs::write(mod_list_file, &new_mod_list).unwrap();
+        let new_mod_list =
+            simd_json::from_slice::<ModList>(&mut new_mod_list.into_bytes())
+                .unwrap()
+                .results;
+        eprintln!("finished downloading the modlist");
+        if !opts.update_all_metadata {
+            let updated_mod_list = new_mod_list
+                .iter()
+                .map(|x| {
+                    (
+                        x.name.as_str(),
+                        x.latest_release.as_ref().map(|x| x.sha1.as_str()),
+                    )
+                })
+                .filter(|&(name, sha1)| {
+                    old_mod_list
+                        .get(name)
+                        .and_then(|x| x.as_deref())
+                        .zip(sha1)
+                        .map(|(a, b)| a != b)
+                        .unwrap_or(true)
+                        | !mod_json_list.contains(name)
+                })
+                .map(|(name, _)| name);
+            // for x in updated_mod_list.clone() {
+            //     eprintln!("{x}");
+            // }
+            download_mods_meta_full(updated_mod_list);
+        } else {
+            download_mods_meta_full(
+                new_mod_list.iter().map(|x| x.name.as_str()),
+            );
+        }
+        mod_list = new_mod_list;
     }
-    mod_list = new_mod_list;
 
     match opts.command {
         None if opts.update_all_metadata => (),
@@ -185,7 +192,7 @@ fn find_broken_mods<'a>(
                 .join("mods")
                 .join(format!("{name}.json")),
         )
-        .expect(&format!("{name}"));
+        .unwrap_or_else(|_| panic!("{name}"));
         let mod_full: ModFull = simd_json::from_reader(file).unwrap();
         if latest_version.is_some() == mod_full.releases.is_empty() {
             eprintln!("release mismatch for {name}");
