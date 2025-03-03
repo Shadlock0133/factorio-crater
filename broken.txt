@@ -74,7 +74,6 @@ Imperfection for 1.1
 Imperfection_Complete for 1.1
 Imperfection_Lite for 1.1
 Improved_gameplay for 1.1
-Industrial-Revolution-Modpack for 1.1
 IndustrialRevolution-Miniloader for 1.1
 IndustrialRevolution_AutomaticTrainFuelStop for 1.1
 IndustrialRevolution_Dae_BP for 1.0
@@ -156,8 +155,6 @@ ShinyBob for 0.14
 SmoothestGameplay for 1.1
 Soft-PvP for 0.17
 Space-Exploration-N1rOo-modpack for 1.1
-Spacedestructor-Islands for 1.1
-Spacedestructor-Space-Exploration-Modpack for 1.1
 SpeaceBlock for 0.18
 SpectralOverhaul for 1.1
 SquidCoder_Factorio_101 for 1.1
@@ -170,7 +167,6 @@ Teddys-QOL for 1.1
 TileMiner for 0.17
 Tmas-QoL for 1.1
 TnoQOL for 1.1
-To_The_Future for 0.18
 TornBreezes_must_have_mods for 1.1
 TrainSpeedMultiplierFixes for 1.1
 TrainSupplyManager_DyWorld_Bridge for 1.1
@@ -336,7 +332,6 @@ silent-pack-2021-1 for 1.1
 simplepack_angel for 0.18
 singleplayer_extreme_modpack for 1.1
 smetdenis-mod-pack for 1.1
-sole-survivor for 1.1
 soup22-modpack-basic for 1.1
 space-exploration-more-resources for 1.1
 space-modpack for 1.1

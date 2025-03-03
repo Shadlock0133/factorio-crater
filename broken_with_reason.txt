@@ -257,9 +257,6 @@ Imperfection_Lite for 1.1 because of:
   Wildfire
 Improved_gameplay for 1.1 because of:
   EvoGUI
-Industrial-Revolution-Modpack for 1.1 because of:
-  EvoGUI
-  IndustrialRevolution
 IndustrialRevolution-Miniloader for 1.1 because of:
   IndustrialRevolution
 IndustrialRevolution_AutomaticTrainFuelStop for 1.1 because of:
@@ -470,6 +467,7 @@ Qol-Criceto-Modpack for 1.1 because of:
 QualityOfLiving for 1.1 because of:
   UltimateResearchQueue
   TrainStatusIcons
+  PasteMoreLogisticSettings
   PipeVisualizer
 RR-PE-PlayNice for 1.1 because of:
   RealisticReactors
@@ -524,11 +522,6 @@ Space-Exploration-N1rOo-modpack for 1.1 because of:
   space-exploration-stuff
   UltimateResearchQueue
   TintedGhosts
-Spacedestructor-Islands for 1.1 because of:
-  EvoGUI
-  simhelper
-Spacedestructor-Space-Exploration-Modpack for 1.1 because of:
-  EvoGUI
 SpeaceBlock for 0.18 because of:
   angelsaddons-warehouses
   A Sea Block Config
@@ -566,13 +559,6 @@ Tmas-QoL for 1.1 because of:
   UltimateResearchQueue
 TnoQOL for 1.1 because of:
   UltimateResearchQueue
-To_The_Future for 0.18 because of:
-  dark-matter-replicators-18-patch
-  EvoGUI
-  ProgressiveRunning
-  RaiLuaLib
-  RealisticReactors
-  resourcehighlighter
 TornBreezes_must_have_mods for 1.1 because of:
   EvoGUI
   Not_Enough_Todo
@@ -1124,10 +1110,6 @@ singleplayer_extreme_modpack for 1.1 because of:
 smetdenis-mod-pack for 1.1 because of:
   EvoGUI
   UltimateResearchQueue
-sole-survivor for 1.1 because of:
-  Burner_Drill_4x4_Area
-  TrainGroups
-  disable-expensive-mode
 soup22-modpack-basic for 1.1 because of:
   rubberize
   PipeVisualizer

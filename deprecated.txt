@@ -520,6 +520,7 @@ FastRobotStart
 FastRunningSpeed
 FastWorld
 FasterLoaders
+FasterStartIratorEdit
 Fastforward-Start-2
 Faver
 FearShotgun
@@ -639,11 +640,13 @@ ISkyLocaleFixes
 Iconic_Filters
 Iconography
 Improved-names
+ImprovedCombinatorSE
 IndestructibleWall2
 Induction Charging
 InductionChargingMk
 Induction_Charging2
 Induction_ChargingCC
+Industrial-Revolution-Modpack
 IndustrialDisplayPlates
 IndustrialDisplays
 IndustrialRevolution
@@ -1031,12 +1034,15 @@ OverloadedTrains
 PCs-Infinite-Ammo-Revived
 PHIDIAS
 PSiChatUtil
+PVPTORIO
+PVP_BALANCE
 PXL
 PY-Module-Fix
 PZKOLP
 PabiYoutubeModpackSeries1
 Panzerkampfwagen-VI-Tiger-Ausfuhrung-H
 Passive Provider Infinity Chest
+PasteMoreLogisticSettings
 PeaceModeOre
 PeacefulSeaBlock
 PeacefulTweakBobsEquipment
@@ -1365,9 +1371,14 @@ SpaceKrasCompat
 SpaceMining
 SpacePotato
 Space_Pack_200
+Spacedestructor-Controller-Fix-for-Omni-Island
+Spacedestructor-Islands
+Spacedestructor-Space-Exploration-Modpack
+Spacedestructor-UER-For-Space-Exploration
 Spaceship_Escape
 SpawnControl
 Spawn_Gear
+SpecialTreeMarker
 Specialized-Processes-Logistics-Resources
 Speed-Furnaces
 SpidertronExtendedInventoryImproved
@@ -1464,6 +1475,7 @@ TintedGhosts
 TinyMarathonStart
 TinyTrains
 Tiny_Start
+To_The_Future
 Todo-List-Continued
 Tons_Of_Research_Productivity
 Too_Much_pollution
@@ -1862,6 +1874,7 @@ cheaper-fusion-research
 cheaper-inserters
 cheat-mod
 chemi-test-mod
+chens-modpack-multiplayer
 chens-modpack-py-omni-qol
 chens-modpack-qol-2
 chens-utility-mod
@@ -1893,6 +1906,7 @@ compound-furnaces
 compoundsplitters
 concrete-and-stone
 concrete-and-stone-016
+concurrent-research
 connavar-invincible-bots
 construction-tab
 cooler-sulfur
@@ -1937,6 +1951,7 @@ deadlock-integrations-updated
 deadlock-stacking-crating-bobs
 deadlock_crating_stacking_simplesilicon
 deagle
+decider-combinator-output-constant-editor
 dectorio-stone-wall
 deep-storage-unit-se
 delta
@@ -1976,6 +1991,7 @@ efficientResearch
 electro-air-cleaner
 electronic-component-packing-Seablock-Fix
 elevated-rails
+enemyracemanagernorobots
 energydestructor
 enhanced_recipes
 equipment-redux
@@ -2049,6 +2065,7 @@ filter-helper-helper
 findmybody
 fire_department
 fish-pole
+fixadamo-carbon
 fixangelsconcrete
 fixedbzlead
 fkdianli
@@ -2132,6 +2149,7 @@ higher-tier-offshore-pumps
 highvoltagepoles
 hourly_autosaves_2
 humor
+hydrogen-fuel-for-all-your-needs
 ic_tweaks
 ice-water-purification
 ifmisskyCN
@@ -2518,6 +2536,7 @@ recipeid
 refined-wells
 remi-factoriotr-modpack
 remote-requests
+remoteMap
 removable-platform
 remove-mining-drone-sound
 remove_mod_names
@@ -2616,10 +2635,12 @@ small-steel
 small_iron_pole-to-pole_ranger-adapter
 smaller_filter_icons
 smartfoo
+snowfall
 soapyshazbot-ammo-loader
 solaire-lights
 solar-calc-2
 solarpanels
+sole-survivor
 somemodsintoukraine
 sonaxaton-nuclear-fuel-krastorio-compat
 space-age

@@ -50,7 +50,6 @@ Imperfection for 1.1
 Imperfection_Complete for 1.1
 Imperfection_Lite for 1.1
 Improved_gameplay for 1.1
-Industrial-Revolution-Modpack for 1.1
 IndustrialRevolution-Miniloader for 1.1
 IndustrialRevolution_AutomaticTrainFuelStop for 1.1
 IndustrialRevolution_SchallAutolinkedChest for 1.1
@@ -102,8 +101,6 @@ SeaBlockCustomPack-Variant for 1.1
 Seaworld for 1.1
 SmoothestGameplay for 1.1
 Space-Exploration-N1rOo-modpack for 1.1
-Spacedestructor-Islands for 1.1
-Spacedestructor-Space-Exploration-Modpack for 1.1
 SpectralOverhaul for 1.1
 SquidCoder_Factorio_101 for 1.1
 SteamTrains-Graphics for 1.1
@@ -245,7 +242,6 @@ seqres-qol-mashup for 1.1
 silent-pack-2021-1 for 1.1
 singleplayer_extreme_modpack for 1.1
 smetdenis-mod-pack for 1.1
-sole-survivor for 1.1
 soup22-modpack-basic for 1.1
 space-exploration-more-resources for 1.1
 space-modpack for 1.1
