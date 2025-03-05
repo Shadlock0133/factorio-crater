@@ -85,6 +85,7 @@ AlienGoopCracking
 Alliance
 Alphabet
 Alt_Bobs_Fuels
+AlternativeOil
 AlternativeSteamUpdated
 Ambeente
 AmbientHype
@@ -133,6 +134,7 @@ BalancePlus
 BalancedSplitters
 Barbed-Wire-016
 Barrel-SizeLott
+BasicRobotics
 Basic_logistic
 Basti-better-armor
 Basti-better-exoskeleton
@@ -539,7 +541,6 @@ FixWideChests
 FixedLampTexture
 FixesbyVitauh
 Flammable_Oils
-Flammable_Oils_QUICKFIX
 Flammable_Oils_Repacked
 Flammable_Oils_fix
 Flare_Stack_Goa
@@ -1030,6 +1031,7 @@ Ore_Quilt
 Ore_Quilt2
 OrphanFinderFixed
 OutpostPlanner1-1
+OutpostPower
 OverloadedTrains
 PCs-Infinite-Ammo-Revived
 PHIDIAS
@@ -1064,7 +1066,6 @@ PipeMeter
 PipeMeterRedux
 PipePressureMeter
 PipeRecipeFixBobAAI
-PipeVisualizer
 Pipette
 PlacePump
 PlacePump-1point1
@@ -1114,7 +1115,7 @@ Qs_modpack
 Quantum-engine-f
 QuantumLogistics
 Quarry-fix
-QuickItemSearch
+QuickGame
 QuickTp
 Quick_Start
 QuickbarSwitcher-016
@@ -1364,6 +1365,7 @@ SoundOnRotate
 SoundOnRotate-Exp
 Space-Exploration-Modpack
 Space-Exploration-Rocket-Part-Delivery
+SpaceAge_Package_Fox_Ukrainian
 SpaceBookDori
 SpaceExplorationSimplifiedFixed
 SpaceExplorationTweak
@@ -1444,6 +1446,7 @@ Taru_Japases_Translation
 TeamCoopFix
 TechTrains
 TechnologyMarket
+TechnologySpecialization
 TelaDi_SE_INF_STORAGE
 TelaDi_SE_STARGATE
 TeleportShortcutsAndHotkeysKozioleksFork
@@ -1471,7 +1474,6 @@ ThomasTrainMusic
 TileReconverter
 Tile_Sculptor
 TimeToolsContinued
-TintedGhosts
 TinyMarathonStart
 TinyTrains
 Tiny_Start
@@ -1484,7 +1486,6 @@ Tower
 Traffic-Bollard
 Train-Speed-Multiplier
 TrainEdit
-TrainGroups
 TrainHack
 TrainSpeedLimit_018_Port
 TrainStationFilterAutofill
@@ -1526,7 +1527,6 @@ UltimateBeltsFixed
 UltimateBelts_jjw_modified
 UltimateLogisticNetwork
 UltimateModule
-UltimateResearchQueue
 Ultra-Fast-Trains
 UltraCubeFlareStack
 Ultra_Super_Mega_Gay
@@ -2525,6 +2525,7 @@ randomize-items
 randomtorio
 randotorio
 raw-calculator
+rd-fuelmix-redux
 rd-tweaks
 rd-waterores
 reactor-adjustment
@@ -2800,6 +2801,7 @@ uranium-belts
 uranium-belts-upd
 uranium-enrichment-rename
 uscrfdsolaraccu
+useful_byproducts
 useful_equipment
 usefulbyproducts
 v15Changes
